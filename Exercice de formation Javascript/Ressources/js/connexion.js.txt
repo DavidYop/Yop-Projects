@@ -1,0 +1,80 @@
+$(function(){
+
+/* --------------------------------------------- EXECTUION DES FONCTIONS --------------------------------------------- */
+//Si les cookies de sessions storage ne sont pas vides :
+if(sessionStorage.length != 0){
+    //On execute les fonctions suivantes :
+    connexion();
+    btnDeconnexion();
+    addCom();
+    showInfos();
+    addBio();
+    showBio();
+}
+
+
+/* --------------------------------------------- FORMULAIRE CONNEXION --------------------------------------------- */
+//Lorsqu'on submit le formulaire de connexion :
+$("#co-form").submit(function(e){
+    //On stop l'action par défaut du formulaire.
+    e.preventDefault();
+    //On vide les messages d'erreur déjà au cas ou il y en as déjà d'affichés.
+    $(".msgErreur").empty();
+    //On stock dans la variable postdata les valeurs des champs du formulaire.
+    var postdata = $("#co-form").serialize();
+    //On ouvre une requête AJAX et on lui donne ses paramètres pour qu'il puisse envoyés les données au script php et recevoir les données que PHP renvois.
+    $.ajax({
+        type: "POST",
+        url: "Ressources/php/login.php",
+        data: postdata,
+        dataType: 'json',
+        //Si PHP renvois des données :
+        success: function(json){
+            //Si dans les données envoyées par PHP l'élément "isSuccess" du array est égal à "true" :
+            if(json.isSuccess){
+                //On stock sous forme de chaîne de caractère dans la variable info, l'élément "info" du array qui contient toutes les données de l'utilisateur
+                var info = JSON.stringify(json.info);
+                //On démarre un cookie sessionStorage, avec comme nom : 'Session' et comme valeurs : les informations de l'utilisateur sous forme de chaîne de caractères.
+                sessionStorage.setItem('Session', info);
+                //On execute ensuite les fonctions nécéssaires à la connexion de l'utilisateur.
+                connexion();
+                btnDeconnexion();
+                addCom();
+                showInfos();
+                addBio();
+                showBio();
+            //Si dans les données envoyées par PHP l'élément "isSuccess" du array est égal à "false" :
+            } else {
+                //On affiche un message d'erreur.
+                $(".msgErreurCo").html('Identifiant ou mot de passe incorrect');
+            }
+        }
+    });
+});
+
+
+/* ---------------------------------------------FONCTION BTNDECONNEXION --------------------------------------------- */
+function btnDeconnexion(){
+    //Lorsqu'un clique à lieu sur le bouton déconnexion :
+    $('#btnConnexion').click(function(){
+        //On supprime les cookies sessionStorage.
+        sessionStorage.clear(cookie);
+        //Et on redirige sur l'index.
+        window.location.replace('index.html');
+    });
+}
+
+
+/* --------------------------------------------- FONCTION CONNEXION --------------------------------------------- */
+function connexion(){
+    //On stock dans la variable cookie le cookie "Session" converti en objet.
+    cookie = JSON.parse(sessionStorage.getItem('Session'));
+    //On change la feuille de style afin qu'elle corresponde au type d'utilisateur (admin ou utilisateur).
+    $('#css').attr('href', 'Ressources/css/' + cookie.admin + '.css')
+    //On cache le modal de connexion.
+    $('#ModalCo').modal('hide');
+    //On change les attributs et le contenu du bouton connexion.
+    $('#btnConnexion').attr('title', 'Déconnexion').html('<i class="fas fa-sign-out-alt"></i> Déconnexion');
+}
+
+});

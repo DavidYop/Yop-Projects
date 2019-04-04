@@ -1,0 +1,41 @@
+$(function(){
+//Random Carousel du haut
+var $item = $('.randomItem');
+$item.addClass('centre');
+
+var $numberofSlides = $('.randomItem').length;
+var $currentSlide = Math.floor((Math.random() * $numberofSlides));
+
+$('.randomCar').each(function(){
+  var $slideValue = $(this).attr('data-slide-to');
+  if($currentSlide == $slideValue) {
+    $(this).addClass('active');
+    $item.eq($slideValue).addClass('active');
+  } else {
+    $(this).removeClass('active');
+    $item.eq($slideValue).removeClass('active');
+  }
+});
+
+
+//Random Carousel du bas
+var $item2 = $('.randomItem2');
+$item2.addClass('centre');
+
+var $numberofSlides2 = $('.randomItem2').length;
+var $currentSlide2 = Math.floor((Math.random() * $numberofSlides2));
+
+$('.randomCar2').each(function(){
+  var $slideValue2 = $(this).attr('data-slide-to');
+  if($currentSlide2 == $slideValue2) {
+    $(this).addClass('active');
+    $item2.eq($slideValue2).addClass('active');
+  } else {
+    $(this).removeClass('active');
+    $item2.eq($slideValue2).removeClass('active');
+  }
+});
+
+
+
+});

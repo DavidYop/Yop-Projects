@@ -1,0 +1,279 @@
+/* -------------------------------------------- GENERAL -------------------------------------------- */
+body, html{
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    background: #f3f3f3;
+    /* background: #ED7F10; */
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+#push{
+    height: 108px;
+    flex-shrink: 0;
+}
+
+#content{
+    flex: 1 0 auto;
+}
+
+
+/* -------------------------------------------- SECTION HEADER -------------------------------------------- */
+#header #bandeau{
+    background: #9FE855;
+    color: #fff;
+    border-bottom: solid 1px #000;
+}
+
+#header #adminOn{
+    display: none;
+}
+
+
+/* -------------------------------------------- NAVBAR -------------------------------------------- */
+#menunav{
+    font-weight: bold;
+    padding: 0px;
+    border-bottom: solid 1px #000;
+    background: #EDFF0C;
+    flex-shrink: 0;
+}
+
+#menunav li{
+    transition: all 0.3s ease;
+}
+
+#menunav li:hover{
+    background: #ffe600;
+}
+
+#menunav li a{
+    padding: 14px;
+}
+
+#menunav li.active{
+    background: #dbaa07;
+}
+
+#hbg{
+    border: none;
+    font-size: 25px;
+    height: 51px;
+    border-radius: 0;
+}
+
+#hbg:hover{
+    background: #ffe600;
+}
+
+.navbar button[aria-expanded=true] .fa-bars{
+	display: none;
+	transition: all 0.2s ease-in;
+ }
+
+ .navbar button[aria-expanded=false] .fa-times{
+	display: none;
+ }
+
+ #btnConnexion{
+     background: #df4439;
+     color: #fff;
+     transition: all 0.2s ease;
+ }
+
+ #btnConnexion:hover{
+    background: #ff4e41;
+}
+
+/* -------------------------------------------- SECTION MODAL CONNEXION -------------------------------------------- */
+#ModalConnexion .modal-content{
+    border-radius: 20px;
+}
+
+#ModalConnexion .msgErreurCo, #ModalConnexion .msgErreur, #ModalConnexion .msgErreurSub{
+	color: #ff0000;
+	font-style: italic;
+	font-size: 13px;
+    height: 15px;
+    float: right;
+    font-weight: bold;
+}
+
+#ModalConnexion .btnForm{
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+#ModalConnexion .btnValid{
+    background: #9FE855;
+}
+
+#ModalConnexion .btnUndo{
+    background: #EDFF0C;
+}
+
+#ModalConnexion .btnValid:hover{
+    background: #74dd0b;
+}
+
+#ModalConnexion .btnUndo:hover{
+    background: #fcff36;
+}
+
+#ModalConnexion #ModalCo .modal-header{
+    background: #ED7F10;
+    padding: 0px;
+    font-size: 23px;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+#ModalConnexion .navbar{
+    padding: 0px;
+    width: 100%;
+}
+
+#ModalConnexion .navbar li:hover{
+    background: #ff8000b2;
+}
+
+#ModalConnexion .navbar a.active{
+    background: #d17000;
+}
+
+#ModalConnexion #tabco a, #ModalConnexion #tabco{
+    border-top-left-radius: 17px;
+}
+
+#ModalConnexion #tabsub a, #ModalConnexion #tabsub{
+    border-top-right-radius: 17px;
+}
+
+#ModalConnexion .navbar li a{
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/* -------------------------------------------- COMMENTAIRES -------------------------------------------- */
+#news #comIndex{
+    overflow: hidden;
+}
+
+#fieldCom{
+    display:none;
+}
+
+#comErr{
+    font-size: 13px;
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.commentaires{
+    border: solid 1px #000;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 10px;
+    background: #fff;
+}
+
+.bodyCom{
+    font-weight: normal;
+    font-style: italic;
+}
+
+.pseudo{
+    color: #ED7F10;
+}
+
+#btnCom{
+    display: none;
+}
+
+
+/* --------------------------------------------- SECTION FOOTER --------------------------------------------- */
+#footer{
+    padding: 75px;
+    background: #9FE855;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    border-top: solid 1px #000;
+    flex-shrink: 0;
+}
+
+#footer a{
+    color: #fff;
+}
+
+
+/* ############################################# MEDIA QUERIES ############################################# */
+
+/* --------------------------------------------- HEADER MEDIA --------------------------------------------- */
+
+@media (max-width: 824px) {
+    #header h1{
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 735px) {
+    #header h1{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 651px) {
+    #header h1{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 562px) {
+    #header h1{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 471px) {
+    #header h1 span{
+    display: none;
+    }
+}
+
+/* --------------------------------------------- NAVBAR MEDIA --------------------------------------------- */
+
+
+
+/* --------------------------------------------- SECTION FOOTER MEDIA --------------------------------------------- */
+@media (max-width: 529px) {
+    #footer{
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 370px) {
+    #footer{
+        font-size: 13px;
+    }
+}
+
+
+/* --------------------------------------------- SECTION MODAL CONNEXION MEDIA --------------------------------------------- */
+@media (max-width: 500px) {
+    #ModalConnexion .msgErreur{
+       float: none;
+       text-align: center;
+       height: 15px;
+       padding: 15px;
+   }
+}

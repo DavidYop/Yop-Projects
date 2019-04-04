@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8" /> <!-- Encodage en UTF-8-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" /> <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> <!-- Bootstrap -->
+    <link rel="icon" href="Ressources/images/logoparoisseR.png" /> <!-- Favicon -->
+    <link rel="stylesheet" id="css" href="Ressources/css/style.css" /> <!-- Style CSS -->
+    <link rel="stylesheet" href="Ressources/css/squelette.css" /> <!-- Squelette CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive design -->
+    <meta name="author" lang="fr" content="David PETROVIC"> <!-- Auteur du site -->
+
+    <title>ECF - News</title>
+    <meta name="description" content="ECF Formation Développeur Web, Web Mobile.">
+
+</head>
+
+<body>
+
+    <!-- ------------------------------------------ HEADER ------------------------------------------ -->
+    <section id="header">
+        <div id="bandeau" class="text-center fixed-top">
+            <h1><img class="img-fluid" alt="Logo Paroisse" src="Ressources/images/logoparoisseR.png"> <span>L'amicale paroisse de Sainte Catherine</span></h1>
+        </div>
+    </section>
+    <div id="push"></div>
+
+    <!-- ------------------------------------------ SECTION MODAL CONNEXION ------------------------------------------ -->
+    <section id="ModalConnexion">
+        <div class="modal fade" id="ModalCo">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+					<div class="modal-header">
+						<nav class="navbar">
+							<ul class="navbar nav nav-fill w-100">
+								<li id="tabco" class="nav-item"><a class="nav-link active" href="#tabconnexion" data-toggle="tab"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+								<li id="tabsub" class="nav-item"><a class="nav-link" href="#tabinscription" data-toggle="tab"><i class="fas fa-user-edit"></i> Inscription</a></li>
+							</ul>
+						</nav>
+					</div>
+
+                    <div class="modal-body">
+                            <div class="tab-content">
+                            <!-------------------------------------------- TAB CONNEXION -------------------------------------------->
+                            <div class="tab-pane fade show active" id="tabconnexion">
+                                <form id="co-form" action="#" method="POST">
+
+                                    <div class="form-group">
+                                        <label for="identifiant">Identifiant :</label>
+                                        <input class="form-control" type="text" id="identifiant" name="identifiant">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe :</label>
+                                        <input class="form-control" type="password" id="password" name="password">
+                                    </div>
+                                    <br>
+                                    <button name="submit" type="submit" class="btn btnForm btnValid">Se connecter</button>
+                                    <button id="undo" type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurCo"></p>
+
+                                </form>
+                            </div>
+                            <!-------------------------------------------- TAB INSCRIPTION -------------------------------------------->
+							<div class="tab-pane fade" id="tabinscription">
+                                <form id="sub-form" action="#" method="POST">
+                                    <div class="form-group">
+                                            <label for="identifiantsub">Identifiant :</label>
+                                            <input class="form-control" type="text" id="identifiantsub" name="identifiantsub" value="">
+                                            <p class="msgErreur"></p>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="lastname">Nom :</label>
+                                                <input class="form-control" type="text" id="lastname" name="lastname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="firstname">Pr&eacute;nom :</label>
+                                                <input class="form-control" type="text" id="firstname" name="firstname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="passwordsub">Mot de passe :</label>
+                                                <input class="form-control" type="password" id="passwordsub" name="passwordsub" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="password_confirm">Confirmation du mot de passe :</label>
+                                                <input class="form-control" type="password" id="password_confirm" name="password_confirm" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">E-mail :</label>
+                                        <input class="form-control" type="email" id="email" name="email" value="">
+                                        <p class="msgErreur"></p>
+                                    </div>
+                                    <button name="submitsub" type="submit" class="btn btnValid btnForm">S'inscrire</button>
+                                    <button type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurSub"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="content">
+
+
+    <!-- ------------------------------------------ NAVBAR ------------------------------------------ -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container-fluid">
+                    <nav id="menunav" class="navbar navbar-light">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item"><a title="Accueil" class="nav-link" href="index.html">Accueil</a></li>
+                            <li class="nav-item"><a title="Réunions" class="nav-link" href="reunions.html">R&eacute;unions</a></li>
+                            <li class="nav-item"><a title="Activités" class="nav-link" href="404.html">Activit&eacute;s</a></li>
+                            <li class="nav-item"><a title="Infos" class="nav-link" href="404.html">Infos</a></li>
+                            <li class="nav-item"><a title="Archives" class="nav-link" href="404.html">Archives</a></li>
+                            <li class="nav-item"><a title="Connexion" id="btnConnexion" class="nav-link" href="#" data-toggle="modal" data-target="#ModalCo"><i class="fas fa-power-off"></i> Connexion</a></li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+
+
+    <!-- ------------------------------------------ SECTION NEWS ------------------------------------------ -->
+    <div class="col-md-6">
+        <div id="divCentrale">
+            <div id="newsCom" class="container-fluid">
+                <br>
+                <p class="text-center"><b>Tout les commentaires :</b></p>
+                <br>
+            </div>
+        </div>
+    </div> 
+
+
+    <!-- ------------------------------------------ SECTION MODULES ------------------------------------------ -->
+    <div class="col-md-3">
+            <div id="modules">
+                <div id="divModules" class=" text-center container-fluid">
+                    <br>
+                    <h5>Navigation rapide :</h5>
+                    <br>
+                    <a href="404.html" title="Acceder à la page d'aide">Aide</a><br><br>
+                    <a href="404.html" title="Acceder à la page contact">Contact</a><br><br>
+                    <a href="404.html" title="Acceder à la page news">News</a>
+                    <br>     
+                    <br>          
+                </div>
+            </div>
+    </div>
+
+</div>
+    
+
+
+
+</div>
+
+    <!-- ------------------------------------------ SECTION FOOTER ------------------------------------------ -->
+    <section id="footer">
+        <div class="text-center">
+            <span><a href="404.html" title="Plan du site">Plan du site</a> | <a href="404.html" title="Infos légales">Infos l&eacute;gales</a> | <a href="404.html" title="Aide">Aide</a> | <a href="404.html" title="Contact">Contact</a></span>
+        </div>
+    </section>
+
+
+    <!-- ------------------------------------------ SCRIPTS ------------------------------------------ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- JavaScript Bootstrap-->
+    <script src="Ressources/js/script.js"></script> <!-- script.js -->
+    <script src="Ressources/js/commentaire.js"></script> <!-- Commentaire.js -->
+    <script src="Ressources/js/membres.js"></script> <!-- membres.js -->
+    <script src="Ressources/js/connexion.js"></script> <!-- Connexion.js -->
+    <script src="Ressources/js/inscription.js"></script> <!-- Inscription.js -->
+
+
+</body>
+
+</html>

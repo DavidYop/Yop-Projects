@@ -1,0 +1,18 @@
+$(function(){
+
+//Smooth scrolling
+$(".smooth").on("click", function(event){		
+    event.preventDefault();
+    const hash = this.hash;		
+    $('body, html').animate({scrollTop: $(hash).offset().top} , 500 , function(){window.location.hash = hash;})
+});	
+
+//Fermer la navbar collapse on click
+$(document).on('click',function(){
+    $('.collapse').collapse('hide');
+})
+
+//Tooltips
+$('[data-toggle="tooltip"]').tooltip({trigger : "hover"});
+
+});

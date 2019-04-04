@@ -1,0 +1,50 @@
+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+span{
+
+    font-weight: normal;
+}
+
+#bio{
+    background: #f2f2f2;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid 1px #000;
+}
+
+#divCentrale{
+    padding: 15px;
+}
+
+#fieldBio{
+    display:none;
+}
+
+.divMembres .img-fluid{
+    transition: all 0.2s ease;
+    border: solid 1px #000;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.divMembres .img-fluid:hover{
+    transform: scale(1.1);
+}
+
+.divMembres .nonSub{
+    filter: brightness(0.5);
+}
+
+.divMembres .nonSub:hover{
+    filter: brightness(0.7);
+    transform: scale(1);
+    cursor: not-allowed;
+}
+
+#infoMembres{
+    display:none;
+}

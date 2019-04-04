@@ -1,0 +1,178 @@
+/* -------------------------------------------- SECTION RANDOM CAROUSEL -------------------------------------------- */
+#secCarousel h5{
+    display: inline-block;
+    padding: 10px;
+    background: #ED7F10;
+    border-radius: 10px;
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+#secCarousel h5:hover{
+    background: #f8af26;
+}
+  
+#secCarousel .centre{
+      background-position: center;
+      background-repeat: no-repeat;
+}
+
+#secCarousel .rond{
+    background: #ED7F10 !important;
+    border-radius: 100px;
+    width: 20px;
+    height: 1px;
+}
+
+#secCarousel .rond:hover{
+    background: #f8af26 !important;
+}
+
+#secCarousel .fa-3x{
+    color: #ED7F10;
+}
+#secCarousel{
+    margin-bottom: 60px;
+}
+
+/* -------------------------------------------- SECTION CARD -------------------------------------------- */
+#secCard .img-fluid{
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
+    -moz-filter: brightness(70%);
+    transition: all 0.3s ease-out;
+}
+
+#secCard .img-fluid:hover{
+    filter: brightness(100%);
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
+
+#secCard .zoom{
+    overflow: hidden;
+    border-radius: 5px;
+    border: solid 2px gray;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: none;
+}
+
+#secCard{
+    margin-bottom: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#secCard h6{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 20px;
+    background: #9FE855;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: solid 2px gray;
+    border-top: none;
+}
+
+
+
+/* -------------------------------------------- SECTION NEWS -------------------------------------------- */
+#news .container-fluid{
+    border: solid 2px #808080;
+    text-align: center;
+    height: 250px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #000;
+}
+
+#news a{
+    text-decoration: none;
+}
+
+#news .card{
+    transition: all 0.3s ease;
+}
+
+#news .card:hover{
+    background: #f2f2f2 !important;
+    box-shadow: 0px 0px 30px #fff;
+}
+
+#news{
+    margin-bottom: 60px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* -------------------------------------------- SECTION CLASSIQUE CAROUSEL -------------------------------------------- */
+#CarouselFixed .rond{
+    background: #ED7F10 !important;
+    border-radius: 100px;
+    width: 20px;
+    height: 1px;
+}
+
+#CarouselFixed .rond:hover{
+    background: #f8af26 !important;
+}
+
+#CarouselFixed #carouselExampleIndicator{
+    border-top: solid 1px #000;
+}
+
+#CarouselFixed .fa-3x{
+    color: #ff7300;
+}
+
+
+/* -------------------------------------------- SECTION CONTENU BLOG -------------------------------------------- */
+#ContenuBlog{
+    margin-bottom: 60px;
+}
+
+#ContenuBlog #banniere{
+    padding: 0px;
+    margin: auto auto 60px auto;
+}
+
+#ContenuBlog img{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#ContenuBlog #divLorem{
+    height: 490px;
+    overflow: hidden;
+}
+
+#ContenuBlog #read{
+    font-weight: bold;
+    background: #ddd;
+    border: solid 1px gray;
+}
+
+#ContenuBlog #read:hover{
+    background: #ccc;
+    color: #000;
+}
+
+#ContenuBlog #retour, #ContenuBlog #divEditTextLorem, #ContenuBlog #edit{
+    display: none;
+}
+
+
+/* ############################################# MEDIA QUERIES ############################################# */
+
+/* --------------------------------------------- SECTION CAROUSEL RANDOM MEDIA --------------------------------------------- */
+@media (max-width: 768px) {
+    #secCarousel h5{
+        display: none;
+    }
+}

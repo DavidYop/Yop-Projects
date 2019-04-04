@@ -1,0 +1,72 @@
+$(function(){
+//Déclaration d'un tableau contenant l'url des images.
+var activite = ['Ressources/images/activite2.jpg', 'Ressources/images/activite3.jpg', 'Ressources/images/activite4.jpg'];
+//On execute la fonction getRandomInt avec comme paramètre 3 que l'on stock dans la variable randomActivite dans un switch
+switch(randomActivite = getRandomInt(3)){
+    //Si la fonction renvois 0, on change l'attribut "src" de l'image (qui a pour id #activitesCard) avec la case du tableau qui contient le chemin d'une image.
+    case 0:
+        $('#activitesCard').attr('src', activite[0]);
+        break;
+    //Si la fonction renvois 1, on change l'attribut "src" de l'image (qui a pour id #activitesCard) avec la case du tableau qui contient le chemin d'une autre image.
+    case 1:
+        $('#activitesCard').attr('src', activite[1]);
+        break;
+    //Si la fonction renvois 2, on change l'attribut "src" de l'image (qui a pour id #activitesCard) avecla case du tableau qui contient le chemin d'une autre image.
+    case 2:
+    $('#activitesCard').attr('src', activite[2]);
+        break;
+}
+
+//On fait la même chose que plus haut mais pour les images de la card réunion.
+var reunions = ['Ressources/images/reunions2.png', 'Ressources/images/reunions3.jpg', 'Ressources/images/reunions4.jpg'];
+switch(randomReunion = getRandomInt(3)){
+    case 0:
+        $('#reunionsCard').attr('src', reunions[0]);
+        break;
+    case 1:
+        $('#reunionsCard').attr('src', reunions[1]);
+        break;
+    case 2:
+    $('#reunionsCard').attr('src', reunions[2]);
+        break;
+}
+
+//On fait la même chose que plus haut mais pour les images de la card membres.
+var profil = ['Ressources/images/profilcard1.jpg', 'Ressources/images/profilcard2.jpg', 'Ressources/images/profilcard3.jpg', 'Ressources/images/profilcard4.jpg', 
+'Ressources/images/profilcard5.jpg', 'Ressources/images/profilcard6.jpg', 'Ressources/images/profilcard7.jpg', 'Ressources/images/profilcard8.jpg'];
+switch(randomProfil = getRandomInt(8)){
+    case 0:
+        $('#profilCard').attr('src', profil[0]);
+        break;
+    case 1:
+        $('#profilCard').attr('src', profil[1]);
+        break;
+    case 2:
+        $('#profilCard').attr('src', profil[2]);
+        break;
+    case 3:
+        $('#profilCard').attr('src', profil[3]);
+        break;
+    case 4:
+        $('#profilCard').attr('src', profil[4]);
+        break;
+    case 5:
+        $('#profilCard').attr('src', profil[5]);
+        break;
+    case 6:
+        $('#profilCard').attr('src', profil[6]);
+        break;
+    case 7:
+        $('#profilCard').attr('src', profil[7]);
+        break;
+    case 8:
+        $('#profilCard').attr('src', profil[8]);
+        break;
+}
+
+//Fonction qui renvois un chiffre entre 0 et le chiffre passer en paramètre (en l'occurence 3).
+function getRandomInt(max){
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  
+});

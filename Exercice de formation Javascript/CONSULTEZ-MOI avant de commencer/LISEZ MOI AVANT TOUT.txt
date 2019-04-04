@@ -1,0 +1,38 @@
+﻿Ne pas oublier d'enlever l'extension .txt des fichiers JavaScript pour que le code fonctionne correctement.
+Ne pas oublier d'editer le fichier db.php en fonction de vos identifiants de base de données. (De base le nom d'utilisateur et le mot de passe sont paramétrés sur 'root').
+
+Pour que le code fonctionne il faut impérativement le lancer sur un serveur local (Apashe, Wamp, etc...).
+
+
+Afin de d'éviter d'insérer les données en brut dans le code, une base de données est nécéssaire pour vérifier si les utilisateurs existent.
+Pour créer la base de données, sa table et ses utilisateurs il faudra copier/coller le contenu ou importer le fichier ECF.sql dans votre interface SQL.
+
+La base de données s'appel ECF, elle contient une table 'users' possédant 7 colonnes :
+id(INT) | pseudo(VARCHAR) | password(VARCHAR) | adresse(VARCHAR) | mail(VARCHAR) | phone(VARCHAR) | admin(BOOLEAN)
+
+Dans cette table quatre utilisateurs existent :
+L'utilisateur Admin qui est de type Administrateur.
+L'utilisateur Utilisateur qui est de type Utilisateur.
+L'utilisateur David qui est de type Administrateur.
+L'utilisateur Jean qui est de type Utilisateur.
+
+L'interface et comportement du blog changera en fonction du compte avec lequel vous serez connecté.
+
+
+Identifiants des utilisateurs :
+
+ADMIN :
+Identifiant : Admin
+Mot de passe : 321
+
+UTILISATEUR :
+Identifiant : Utilisateur
+Mot de passe : 123
+
+DAVID :
+Identifiant : David
+Mot de passe : mdp
+
+JEAN :
+Identifiant : Jean
+Mot de passe : pwd

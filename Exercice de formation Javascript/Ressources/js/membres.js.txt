@@ -1,0 +1,155 @@
+//On stock dans la variable cookie le cookie "Session" converti en objet.
+cookie = JSON.parse(sessionStorage.getItem('Session'));
+
+
+/* --------------------------------------------- FONCTION SHOWINFOS (Onglet coordonnées) --------------------------------------------- */
+function showInfos(){
+    //Change le contenu des coordonnées à afficher en foncition de l'utilisateur connecté.
+    $('#pseudoM').html(cookie.pseudo);
+    $('#adresseM').html(cookie.adresse);
+    $('#mailM').html(cookie.mail);
+    $('#phoneM').html(cookie.phone);
+    $('#accountN').html(cookie.id);
+
+}
+
+/* --------------------------------------------- FONCTION ADDBIO (Onglet biographie) --------------------------------------------- */
+function addBio(){
+    //Si l'utilistateur est connecté :
+    if(sessionStorage.length != 0){
+        //On initialise la variable onAdd sur false.
+        var onAdd = false;
+        //Losqu'un clique à lieu sur le bouton "Ajouter une bio" :
+        $('#btnAddBio').click(function(){
+            //Si la variable onAdd est égal à false :
+            if(onAdd == false){
+                //On passe la variable onAdd sur true.
+                onAdd = true;
+                //On fais apparaître un champs de texte pour régider la bio.
+                $('#fieldBio').show();
+                //On fais un focus du champs de texte.
+                $('#fieldBio').focus();
+                //On cache la div d'affichage de la biographie.
+                $('#bio').hide();
+                // On change l'apparence du bouton "Ajouter une bio"
+                $('#btnAddBio').html('<i class="fas fa-check"></i> Ajouter ma bio');
+             //Si la variable onAdd est égal à true :
+            } else {
+                //Si une bio est saisie :
+                if($('#fieldBio').val() != ''){
+                    //On passe la variable onAdd sur false.
+                    onAdd = false;
+                    //On créé une variable contenant la valeur du champs de rédaction de la biographie
+                    var valBio = $('#fieldBio').val();
+                    //On change l'apparence du bouton "Ajouter ma bio".
+                    $('#btnAddBio').html("Editer ma bio");
+                    //On cache le champs d'édition de la bio.
+                    $('#fieldBio').hide();
+                    //On affiche la div d'affichage de la biographie.
+                    $('#bio').show();
+                    //On vide les messages d'erreur si il y en as.
+                    $('#comErr').empty();
+                    //On créé un cookie localStorage avec comme nom 'Bio' et comme valeur le pseudo de l'utilisateur et la valeur de la variable valBio.
+                    localStorage.setItem('Bio' + cookie.pseudo, valBio);
+                   //On stock dans la variable cookieBio le cookie localStorage créé ci-dessus.
+                    var cookieBio = localStorage.getItem('Bio' + cookie.pseudo);
+                    //On insert la valeur de cookieBio dans la div d'affichage de la biographie.
+                    $('#bio').html('<p>' + cookieBio + '</p>');
+                    //Egalement dans la div d'affichage des informations de membre.
+                    $('#bioMembres').html(cookieBio);
+                //Si aucune bio n'est saisie :
+                } else {
+                    //On affiche un message d'erreur
+                    $('#comErr').html('Veuillez saisir une biographie');
+                }
+            }
+        });
+    }
+}
+
+
+/* --------------------------------------------- FONCTION SHOWBIO (Onglet biographie) --------------------------------------------- */
+function showBio(){
+    //Si il y a un cookie qui se nomme 'Bio' suivi du pseudo de la personne connecté :
+    if(localStorage.getItem('Bio' + cookie.pseudo)){
+        //On affiche dans la div d'affichage de la biographie la bio correspondante à l'utilisateur connecté.
+        $('#bio').html('<p>' + localStorage.getItem('Bio' + cookie.pseudo) + '</p>');
+        //On change le contenu du bouton "Ajouter une bio".
+        $('#btnAddBio').html("Editer ma bio");
+    //Si il y a aucun cookie qui correspond
+    } else {
+        //On affiche le message de bipgrahpie vide.
+        $('#bio').html("<p class='text-center'>Vous n'avez pas de biographie, ajoutez-en une !</p>");
+    }
+}
+
+
+//Onglet Album
+//Si il y a un cookie 'Session' :
+if(sessionStorage.getItem('Session')){
+    //On modifie l'attribut source d'une balise image pour afficher la photo correspondante à l'utilisateur connecté.
+    $('#albumPic').attr('src', 'Ressources/images/' + cookie.pseudo + '.jpg')
+}
+	
+
+//Afficher les informations des membres
+//Lorsqu'un clique à lieu sur une des photos des membres :
+$('.yesSub').click(function(){
+    //On stock dans la variable pseudoPic la valeur de l'attribut ID de la photo.
+    var pseudoPic = $(this).attr('id');
+    //Si l'attribut ID correspond à 'David'.
+    if(pseudoPic == 'David'){
+        //On stock les données suivantes dans les trois variables ci-dessous.
+        var adresse = '56 Avenue de la Tour';
+        var email = 'david@gmail.com';
+        var phone = '06.56.10.44.78';
+    }
+    //On adapte les données des variables en fonction de la valeur de l'ID
+    if(pseudoPic == 'Jean'){
+        var adresse = '42 Chemin des Batisses';
+        var email = 'jean@gmail.com';
+        var phone = '06.78.45.02.12';
+    }
+    if(pseudoPic == 'Admin'){
+        var adresse = '24 Rue de la Truffe';
+        var email = 'Admin@gmail.com';
+        var phone = '06.10.11.12.13';
+    }
+    if(pseudoPic == 'Utilisateur'){
+        var adresse = '12 Rue du Champignon';
+        var email = 'Utilisateur@gmail.com';
+        var phone = '06.03.02.01.00';
+    }
+
+    //On déclare un objet constructeur qui aura pour prorpiété : prenom, bio, adresse, email, phone.
+    let Utilisateur = class {
+        constructor(prenom, bio, photo, adresse, email, phone) {
+            this.prenom = prenom;
+            this.bio = bio;
+            this.photo = photo
+            this.adresse = adresse;
+            this.email = email;
+            this.phone = phone;
+        }
+    };
+    //On créé l'objet user avec l'objet constructeur utilisateur.
+    var User = new Utilisateur(pseudoPic, localStorage.getItem('Bio' + pseudoPic), 'Ressources/images/' + pseudoPic + '.jpg', adresse, email, phone);
+    //On fais apparaître la div d'information des membres avec une animation.
+    $('#infoMembres').slideDown();
+    //Si une biographie existe pour le membres :
+    if(User.bio != null){
+        //On affiche sa biographie.
+        $('#bioMembres').html(User.bio);
+    //Si le membre n'as pas de biographie :
+    } else {
+        //On affiche un message de biographie vide.
+        $('#bioMembres').html(User.prenom + " n'as pas encore ajouter sa biographie.");
+    }
+    //On insert ensuite dans les champs correspondant les informations du membre sur lequel on as cliqué.
+    $('#pseudoMembres').html(User.prenom);
+    $('#adresseMembres').html(User.adresse);
+    $('#mailMembres').html(User.email);
+    $('#phoneMembres').html(User.phone);
+    $('#profilNom').html(User.prenom);
+    $('#albumPicMembres').attr('src', User.photo)
+});

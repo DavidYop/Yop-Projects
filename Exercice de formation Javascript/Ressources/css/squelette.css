@@ -1,0 +1,34 @@
+/* -------------------------------------------- GENERAL -------------------------------------------- */
+#content{
+    margin-top: 5%;
+    margin-bottom: 60px;
+}
+
+#divCentrale{
+    width: 100%;
+    border: solid 1px #000;
+}
+
+#modules{
+    width: 70%;
+    margin-left: 10%;
+    border: solid 1px #000;
+}
+
+#menunav{
+    width: 70%;
+    margin-left: 20%;
+    border: solid 1px #000;
+}
+
+/* ############################################# MEDIA QUERIES ############################################# */
+
+/* -------------------------------------------- AUTRES MEDIA -------------------------------------------- */
+@media (max-width: 768px) {
+    #menunav, #modules{
+        margin-left: 15%
+    }
+    #menunav, #divCentrale{
+        margin-bottom: 60px;
+    }
+}

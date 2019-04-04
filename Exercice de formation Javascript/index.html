@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8" /> <!-- Encodage en UTF-8-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" /> <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> <!-- Bootstrap -->
+    <link rel="icon" href="Ressources/images/logoparoisseR.png" /> <!-- Favicon -->
+    <link rel="stylesheet" id="css" href="Ressources/css/style.css" /> <!-- Style CSS -->
+    <link rel="stylesheet" href="Ressources/css/index.css" /> <!-- Index CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive design -->
+    <meta name="author" lang="fr" content="David PETROVIC"> <!-- Auteur du site -->
+
+    <title>ECF - Accueil</title>
+    <meta name="description" content="ECF Formation Développeur Web, Web Mobile.">
+
+</head>
+
+<body>
+
+    <!-- ------------------------------------------ HEADER ------------------------------------------ -->
+    <section id="header">
+        <div id="bandeau" class="text-center fixed-top">
+            <h1><img class="img-fluid" alt="Logo Paroisse" src="Ressources/images/logoparoisseR.png"> <span>L'amicale paroisse de Sainte Catherine</span><span id="adminOn"> (Interface Admin)</span></h1>
+        </div>
+    </section>
+
+
+    <div id="push"></div>
+
+    <!-- ------------------------------------------ SECTION MODAL CONNEXION ------------------------------------------ -->
+    <section id="ModalConnexion">
+        <div class="modal fade" id="ModalCo">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+					<div class="modal-header">
+						<nav class="navbar">
+							<ul class="navbar nav nav-fill w-100">
+								<li id="tabco" class="nav-item"><a class="nav-link active" href="#tabconnexion" data-toggle="tab"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+								<li id="tabsub" class="nav-item"><a class="nav-link" href="#tabinscription" data-toggle="tab"><i class="fas fa-user-edit"></i> Inscription</a></li>
+							</ul>
+						</nav>
+					</div>
+
+                    <div class="modal-body">
+                            <div class="tab-content">
+                            <!-------------------------------------------- TAB CONNEXION -------------------------------------------->
+                            <div class="tab-pane fade show active" id="tabconnexion">
+                                <form id="co-form" action="#" method="POST">
+
+                                    <div class="form-group">
+                                        <label for="identifiant">Identifiant :</label>
+                                        <input class="form-control" type="text" id="identifiant" name="identifiant">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe :</label>
+                                        <input class="form-control" type="password" id="password" name="password">
+                                    </div>
+                                    <br>
+                                    <button name="submit" type="submit" class="btn btnForm btnValid">Se connecter</button>
+                                    <button id="undo" type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurCo"></p>
+
+                                </form>
+                            </div>
+                            <!-------------------------------------------- TAB INSCRIPTION -------------------------------------------->
+							<div class="tab-pane fade" id="tabinscription">
+                                <form id="sub-form" action="#" method="POST">
+                                    <div class="form-group">
+                                            <label for="identifiantsub">Identifiant :</label>
+                                            <input class="form-control" type="text" id="identifiantsub" name="identifiantsub" value="">
+                                            <p class="msgErreur"></p>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="lastname">Nom :</label>
+                                                <input class="form-control" type="text" id="lastname" name="lastname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="firstname">Pr&eacute;nom :</label>
+                                                <input class="form-control" type="text" id="firstname" name="firstname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="passwordsub">Mot de passe :</label>
+                                                <input class="form-control" type="password" id="passwordsub" name="passwordsub" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="password_confirm">Confirmation du mot de passe :</label>
+                                                <input class="form-control" type="password" id="password_confirm" name="password_confirm" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">E-mail :</label>
+                                        <input class="form-control" type="email" id="email" name="email" value="">
+                                        <p class="msgErreur"></p>
+                                    </div>
+                                    <button name="submitsub" type="submit" class="btn btnValid btnForm">S'inscrire</button>
+                                    <button type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurSub"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- ------------------------------------------ NAVBAR ------------------------------------------ -->
+    <nav id="menunav" class="navbar navbar-expand-md navbar-light">
+            <button href="#collapseCross" aria-expanded="false" aria-controls="collapseCross" class="navbar-toggler" data-toggle="collapse" id="hbg" data-target="#HMenu">
+                <i class="fas fa-bars fa-lg"></i>
+                <i class="fas fa-times fa-lg"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="HMenu">
+                <ul class="navbar-nav nav-fill w-100">
+                    <li class="nav-item active"><a title="Accueil" class="nav-link" href="index.html">Accueil</a></li>
+                    <li class="nav-item"><a title="Réunions" class="nav-link" href="reunions.html">R&eacute;unions</a></li>
+                    <li class="nav-item"><a title="Activités" class="nav-link" href="404.html">Activit&eacute;s</a></li>
+                    <li class="nav-item"><a title="Infos" class="nav-link" href="404.html">Infos</a></li>
+                    <li class="nav-item"><a title="Membres" class="nav-link" href="membres.html">Membres</a></li>
+                    <li class="nav-item"><a title="Archives" class="nav-link" href="404.html">Archives</a></li>
+                    <li class="nav-item"><a title="Connexion" id="btnConnexion" class="nav-link" href="#" data-toggle="modal" data-target="#ModalCo"><i class="fas fa-power-off"></i> Connexion</a></li>
+                </ul>
+            </div>
+        </nav>
+    
+
+    <!-- ------------------------------------------ SECTION RANDOM CAROUSEL ------------------------------------------ -->
+    <section id="secCarousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li class="rond randomCar" data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+                <li class="rond randomCar" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li class="rond randomCar" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li class="rond randomCar" data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item randomItem">
+                    <a href="reunions.html" title="Réunions"><img class="img-fluid bg-light" src="Ressources/images/reunions1.png" alt="Réunions"></a>
+                    <div class="carousel-caption d-md-block">
+                        <a href="reunions.html" title="Réunions"><h5>R&eacute;unions</h5></a>
+                    </div>
+                </div>
+                <div class="carousel-item randomItem">
+                    <a href="404.html" title="Activités"><img class="img-fluid" src="Ressources/images/activite1.jpg" alt="Activités"></a>
+                    <div class="carousel-caption d-md-block">
+                        <a href="404.html" title="Activités"><h5>Activit&eacute;s</h5></a>
+                    </div>
+                </div>
+                <div class="carousel-item randomItem">
+                    <a href="membres.html" title="Membres"><img class="img-fluid" src="Ressources/images/membres1.jpg" alt="Membres"></a>
+                    <div class="carousel-caption d-md-block">
+                        <a href="membres.html" title="Membres"><h5>Membres</h5></a>
+                    </div>
+                </div>
+                <div class="carousel-item randomItem">
+                    <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives1.jpg" alt="Archives"></a>
+                    <div class="carousel-caption d-md-block">
+                        <a href="404.html" title="Archives"><h5>Archives</h5></a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <i class="fas fa-angle-left fa-3x"></i>
+                <span class="sr-only">Pr&eacute;cedent</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <i class="fas fa-angle-right fa-3x"></i>
+                <span class="sr-only">Suivant</span>
+            </a>
+        </div>
+    </section>
+
+    <div id="content">
+<!-- ------------------------------------------ SECTION CARD ------------------------------------------ -->
+    <section id="secCard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md" data-toggle="tooltip" title="RÉUNIONS">
+                    <div class="zoom"><a href="reunions.html" title="Réunions"><img data-toggle="tooltip" id="reunionsCard" alt="Réunions" class="img-fluid" src="#"></a></div>
+                    <h6>R&eacute;unions</h6>
+                </div>
+                <div class="col-md" data-toggle="tooltip" title="ACTIVITÉS">
+                    <div class="zoom"><a href="404.html" title="Activités"><img data-toggle="tooltip" id="activitesCard" alt="Activités" class="img-fluid" src="#"></a></div>
+                    <h6>Activit&eacute;s</h6>
+                </div>
+                <div data-toggle="tooltip" title="MEMBRES" class="col-md">
+                    <div class="zoom"><a href="membres.html" title="Membres"><img alt="Membres" id="profilCard" class="img-fluid" src="#"></a></div>
+                    <h6>Membres</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+<!-- ------------------------------------------ SECTION NEWS ------------------------------------------ -->
+    <section id="news">
+        <a href="news.html" title="Infos">
+            <div class="card container-fluid">
+                <h3>Dernier commentaire :</h3>
+                <div id="comIndex">
+                    Aucun commentaire pour le moment
+                </div>
+            </div>
+        </a>
+    </section>
+
+
+<!-- ------------------------------------------ SECTION CAROUSEL CLASSIQUE ------------------------------------------ -->
+    <section id="CarouselFixed">
+            <div id="carouselExampleIndicator" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator active" data-slide-to="0"></li>
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator" data-slide-to="1"></li>
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator" data-slide-to="2"></li>
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator" data-slide-to="3"></li>
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator" data-slide-to="4"></li>
+                    <li class="rond randomCar2" data-target="#carouselExampleIndicator" data-slide-to="5"></li>
+                </ol>
+    
+                <div class="carousel-inner">
+                    <div class="carousel-item randomItem2 active">
+                        <a href="404.html" title="Archives"><img class="img-fluid bg-light" src="Ressources/images/archives2.jpg" alt="Photo Archives 1"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item randomItem2">
+                        <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives3.jpg" alt="Photo Archives 2"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item randomItem2">
+                        <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives4.jpg" alt="Photo Archives 3"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item randomItem2">
+                        <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives5.jpg" alt="Photo Archives 4"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item randomItem2">
+                        <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives6.jpg" alt="Photo Archives 5"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                    <div class="carousel-item randomItem2">
+                        <a href="404.html" title="Archives"><img class="img-fluid" src="Ressources/images/archives7.jpg" alt="Photo Archives 6"></a>
+                        <div class="carousel-caption d-md-block">
+                        </div>
+                    </div>
+                </div>
+    
+                <a class="carousel-control-prev" href="#carouselExampleIndicator" role="button" data-slide="prev">
+                        <i class="fas fa-angle-left fa-3x"></i>
+                    <span class="sr-only">Pr&eacute;cedent</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicator" role="button" data-slide="next">
+                        <i class="fas fa-angle-right fa-3x"></i>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+        </section>
+    
+
+    </div> 
+    <!-- ------------------------------------------ SECTION FOOTER ------------------------------------------ -->
+    <section id="footer">
+        <div class="text-center">
+            <span><a href="404.html" title="Plan du site">Plan du site</a> | <a href="404.html" title="Infos légales">Infos l&eacute;gales</a> | <a href="404.html" title="Aide">Aide</a> | <a href="404.html" title="Contact">Contact</a></span>
+        </div>
+    </section>
+
+
+    <!-- ------------------------------------------ SCRIPTS ------------------------------------------ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- JavaScript Bootstrap-->
+    <script src="Ressources/js/script.js"></script> <!-- script.js -->
+    <script src="Ressources/js/commentaire.js"></script> <!-- Commentaire.js -->
+    <script src="Ressources/js/membres.js"></script> <!-- membres.js -->
+    <script src="Ressources/js/connexion.js"></script> <!-- Connexion.js -->
+    <script src="Ressources/js/inscription.js"></script> <!-- Inscription.js -->
+    <script src="Ressources/js/randomCarousel.js"></script> <!-- RandomCarousel.js -->
+    <script src="Ressources/js/randomCard.js"></script> <!-- RandomCard.js -->
+
+
+</body>
+
+</html>

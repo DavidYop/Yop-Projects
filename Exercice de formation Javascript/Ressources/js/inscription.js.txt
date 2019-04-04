@@ -1,0 +1,11 @@
+$(function(){
+
+//Lorsqu'on submit le formulaire d'inscription :
+$("#sub-form").submit(function(e){
+    //On stop l'action par défaut du formulaire.
+    e.preventDefault();
+    //Et on informe l'utilisateur que les inscriptions en sont pas possible pour le moment.
+    $(".msgErreurSub").html('Les inscriptions sont désactivés pour le moment.');
+});
+
+});

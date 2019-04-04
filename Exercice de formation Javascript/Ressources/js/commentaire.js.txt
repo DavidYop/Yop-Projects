@@ -1,0 +1,90 @@
+//On stock dans la variable cookie le cookie "Session" converti en objet.
+cookie = JSON.parse(sessionStorage.getItem('Session'));
+//On execute la fonction showCom() dans la variable comString.
+ComString = showCom();
+
+
+/* --------------------------------------------- FONCTION ADDCOM --------------------------------------------- */
+function addCom(){
+    //Si l'utilistateur (ou l'admin) est connecté :
+    if(sessionStorage.length != 0){
+        $('#btnCom').show();
+        //On initialise la variable onAdd sur false.
+        var onAdd = false;
+        //Losqu'un clique à lieu sur le bouton "Ajouter un commentaire" :
+        $('#btnCom').click(function(){
+            //Si la variable onAdd est égal à false :
+            if(onAdd == false){
+                //On passe la variable onAdd sur true.
+                onAdd = true;
+                //On fais apparaître un champs de texte pour régider le commentaire.
+                $('#fieldCom').show();
+                //On fais un focus du champs de texte.
+                $('#fieldCom').focus();
+                //On change l'apparence du bouton "Ajouter un commentaire"
+                $('#btnCom').html('<i class="fas fa-check"></i> Envoyer');
+             //Si la variable onAdd est égal à true :
+            } else {
+                //Si un commentaire est saisi :
+                if($('#fieldCom').val() != ''){
+                    //On passe la variable onAdd sur false.
+                    onAdd = false;
+                    //On créé une variable contenant la valeur du champs d'edition du commentaire. 
+                    var valCom = $('#fieldCom').val();
+                    //On change l'apparence du bouton "Valider".
+                    $('#btnCom').html("Ajouter un commentaire");
+                    //On fais disparaître le champs de rédaction du commentaire.
+                    $('#fieldCom').hide();
+                    //On efface les messages d'erreur.
+                    $('#comErr').empty();
+                    //On stock dans la variable idCom la string 'Com' suivis de la longueur de localStorage.
+                    var idCom = 'Com' + localStorage.length;
+                    //On stock dans la variable dynCom valeur du champs d'edition du commentaire, suivi d'une chaîne de caractères aléatoire et du pseudo de l'utilisateur.
+                    var dynCom = [valCom, 'iaMasep4rat0rx23HH74Tob1' + cookie.pseudo];
+                    //On créé un cookie localStorage avec comme nom la valeur de la variable idCom et comme valeur, la valeur de la variable dynCom.
+                    localStorage.setItem(idCom, dynCom);
+                    //On stock dans la variable cookieCom le cookie localStorage créé ci-dessus.
+                    var cookieCom = localStorage.getItem(idCom);
+                    //On stock dans la variable separator une expression régulière de la chaîne de caractères aléatoire rentrée dans la variable dynCom précédé d'une virgule.
+                    var separator = new RegExp(',iaMasep4rat0rx23HH74Tob1');
+                    //On fais un split de cookieCom avec comme separateur la variable separator afin d'obtenir un tableau contenant le nom de celui qui a rédiger le commentaire et la valeur du commentaire.
+                    var comSplit = cookieCom.split(separator);
+                    //A ajoute à l'espace commentaire le commentaire créé :
+                    $('#espaceCom').append('<div class="commentaires"> <span class="pseudo">' + comSplit[1] + '</span> à commenté : <p class="bodyCom">' + comSplit[0] + '</p></div>');
+                    //On enlève la valeur du champs de redaction de commentaire
+                    $('#fieldCom').val('');
+                //Si aucun commentaire n'est saisi :
+                } else {
+                    //On affiche un message d'erreur.
+                    $('#comErr').html('Veuillez saisir un commentaire');
+                }
+            }
+        });
+    }
+}
+
+
+/* --------------------------------------------- FONCTION showCom --------------------------------------------- */
+function showCom(){
+    //On stock dans la variable monComObj un tableau des localStorage
+    var monComObj = Object.keys(localStorage);
+    //On stock dans la variable comReg une expression régulière de 'Com'.
+    var comReg = new RegExp('Com');
+    //Pour chaque localStorage existants :
+    $.each(monComObj, function(i){
+        //Si une des cases du tableau monComObj correspond à l'expression régulière de la variable comReg :
+        if(monComObj[i].match(comReg)){
+            //On stock dans la variable comString le cookie localStorage qui correspond à l'expression régulière.
+            var comString = localStorage.getItem(monComObj[i]);
+            //On créé un separateur à l'aide d'une expression régulière d'une chaîne de caractère aléatoire que l'on stock dans la variable separator.
+            var separator = new RegExp(',iaMasep4rat0rx23HH74Tob1');
+            //On transform la variable comString en tabelau en utilisant la variable separator comme séparateur.
+            var comSplit = comString.split(separator);
+            //On affiche les commentaires partout ou ils doivent être présents.
+            $('#espaceCom').append('<div class="commentaires"> <span class="pseudo">' + comSplit[1] + '</span> à commenté : <p class="bodyCom">' + comSplit[0] + '</p></div>');
+            $('#comIndex').html('<div class="commentaires"> <span class="pseudo">' + comSplit[1] + '</span> à commenté : <p class="bodyCom">' + comSplit[0] + '</p></div>');
+            $('#newsCom').append('<div class="commentaires"> <span class="pseudo">' + comSplit[1] + '</span> à commenté : <p class="bodyCom">' + comSplit[0] + '</p></div>');
+        }
+        i++
+    });
+}

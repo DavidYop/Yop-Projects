@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8" /> <!-- Encodage en UTF-8-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" /> <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" /> <!-- Bootstrap -->
+    <link rel="icon" href="Ressources/images/logoparoisseR.png" /> <!-- Favicon -->
+    <link rel="stylesheet" id="css" href="Ressources/css/style.css" /> <!-- Style CSS -->
+    <link rel="stylesheet" href="Ressources/css/membres.css" /> <!-- Membres CSS -->
+    <link rel="stylesheet" href="Ressources/css/squelette.css" /> <!-- Squelette CSS -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive design -->
+    <meta name="author" lang="fr" content="David PETROVIC"> <!-- Auteur du site -->
+
+    <title>ECF - Membres</title>
+    <meta name="description" content="ECF Formation Développeur Web, Web Mobile.">
+
+</head>
+
+<body>
+
+    <!-- ------------------------------------------ HEADER ------------------------------------------ -->
+    <section id="header">
+        <div id="bandeau" class="text-center fixed-top">
+            <h1><img class="img-fluid" alt="Logo Paroisse" src="Ressources/images/logoparoisseR.png"> <span>L'amicale paroisse de Sainte Catherine</span></h1>
+        </div>
+    </section>
+    <div id="push"></div>
+
+    <!-- ------------------------------------------ SECTION MODAL CONNEXION ------------------------------------------ -->
+    <section id="ModalConnexion">
+        <div class="modal fade" id="ModalCo">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+					<div class="modal-header">
+						<nav class="navbar">
+							<ul class="navbar nav nav-fill w-100">
+								<li id="tabco" class="nav-item"><a class="nav-link active" href="#tabconnexion" data-toggle="tab"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+								<li id="tabsub" class="nav-item"><a class="nav-link" href="#tabinscription" data-toggle="tab"><i class="fas fa-user-edit"></i> Inscription</a></li>
+							</ul>
+						</nav>
+					</div>
+
+                    <div class="modal-body">
+                            <div class="tab-content">
+                            <!-------------------------------------------- TAB CONNEXION -------------------------------------------->
+                            <div class="tab-pane fade show active" id="tabconnexion">
+                                <form id="co-form" action="#" method="POST">
+
+                                    <div class="form-group">
+                                        <label for="identifiant">Identifiant :</label>
+                                        <input class="form-control" type="text" id="identifiant" name="identifiant">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe :</label>
+                                        <input class="form-control" type="password" id="password" name="password">
+                                    </div>
+                                    <br>
+                                    <button name="submit" type="submit" class="btn btnForm btnValid">Se connecter</button>
+                                    <button id="undo" type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurCo"></p>
+
+                                </form>
+                            </div>
+                            <!-------------------------------------------- TAB INSCRIPTION -------------------------------------------->
+							<div class="tab-pane fade" id="tabinscription">
+                                <form id="sub-form" action="#" method="POST">
+                                    <div class="form-group">
+                                            <label for="identifiantsub">Identifiant :</label>
+                                            <input class="form-control" type="text" id="identifiantsub" name="identifiantsub" value="">
+                                            <p class="msgErreur"></p>
+                                        </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="lastname">Nom :</label>
+                                                <input class="form-control" type="text" id="lastname" name="lastname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="firstname">Pr&eacute;nom :</label>
+                                                <input class="form-control" type="text" id="firstname" name="firstname" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="passwordsub">Mot de passe :</label>
+                                                <input class="form-control" type="password" id="passwordsub" name="passwordsub" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="password_confirm">Confirmation du mot de passe :</label>
+                                                <input class="form-control" type="password" id="password_confirm" name="password_confirm" value="">
+                                                <p class="msgErreur"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">E-mail :</label>
+                                        <input class="form-control" type="email" id="email" name="email" value="">
+                                        <p class="msgErreur"></p>
+                                    </div>
+                                    <button name="submitsub" type="submit" class="btn btnValid btnForm">S'inscrire</button>
+                                    <button type="reset" class="btn btnUndo btnForm" data-dismiss="modal">Annuler</button>
+                                    <br>
+                                    <p class="msgErreurSub"></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<div id="content">
+
+
+    <!-- ------------------------------------------ NAVBAR ------------------------------------------ -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="container-fluid">
+                    <nav id="menunav" class="navbar navbar-light">
+                        <ul class="navbar-nav nav-fill w-100">
+                            <li class="nav-item"><a title="Accueil" class="nav-link" href="index.html">Accueil</a></li>
+                            <li class="nav-item"><a title="Réunions" class="nav-link" href="reunions.html">R&eacute;unions</a></li>
+                            <li class="nav-item"><a title="Activités" class="nav-link" href="404.html">Activit&eacute;s</a></li>
+                            <li class="nav-item"><a title="Infos" class="nav-link" href="404.html">Infos</a></li>
+                            <li class="nav-item active"><a title="Membres" class="nav-link" href="membres.html">Membres</a></li>
+                            <li class="nav-item"><a title="Archives" class="nav-link" href="404.html">Archives</a></li>
+                            <li class="nav-item"><a title="Connexion" id="btnConnexion" class="nav-link" href="#" data-toggle="modal" data-target="#ModalCo"><i class="fas fa-power-off"></i> Connexion</a></li>
+                        </ul>
+                    </nav>
+            </div>
+        </div>
+
+
+<!-- ------------------------------------------ SECTION MEMBRES ------------------------------------------ -->
+        <div class="col-md-6">
+            <div class="container-fluid" id="monprofil">
+                    <br>
+                    <br>
+                    <h2 class="text-center"> Mon profil :</h2>
+                    <ul class="justify-content-center nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#biographie" data-toggle="tab">Bio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#coordonnees" data-toggle="tab">Coordonnées</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#album" data-toggle="tab">Albums</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#param" data-toggle="tab">Paramètres</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <br>
+                        <div class="tab-pane active" id="biographie">
+                            <h2>Ma biographie :</h2>
+                            <div id="bio">
+                                <p class="text-center">Vous n'avez pas de biographie, ajoutez-en une !</p>
+                            </div>
+                            <div id="editBio">
+                                <div class="form-group"><textarea class="form-control" id="fieldBio" rows="5"></textarea></div>
+                                <button class="btn btn-success" id="btnAddBio">Ajouter une bio</button>
+                                <p id="comErr"></p>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="coordonnees">
+                            <p>Pr&eacute;nom : <span id="pseudoM">Chargement en cours...</span></p>
+                            <p> Adresse : <span id="adresseM">Chargement en cours...</span></p>
+                            <p>E-mail : <span id="mailM">Chargement en cours...</span></p>
+                            <p>Num&eacute;ro de t&eacute;l&eacute;phone : <span id="phoneM">Chargement en cours...</span></p>
+                        </div>
+                        <div class="tab-pane text-center" id="album">
+                            <h2>Vos photos : </h2>
+                            <img class="img-fluid" id="albumPic" src="#" alt="Photo de profil">
+                        </div>
+                        <div class="tab-pane" id="param">
+                            <h2>Mes paramètres :</h2>
+                            <p>Num&eacute;ro de compte : <span id="accountN">Chargement en cours...</span></p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+        <div id="divCentrale">
+            <div class="container-fluid text-center divMembres">
+                <h1>Liste des membres :</h1>
+                <img src="Ressources/images/profil1.jpg" alt="Photo de profil" class="img-fluid nonSub" title="Le profil de ce membre est privé" data-toggle="tooltip">
+                <a class="smooth" href="#infoMembres"><img src="Ressources/images/Utilisateur.jpg" alt="Photo de profil" id="Utilisateur" class="img-fluid yesSub" title="Voir le profil" data-toggle="tooltip"></a>
+                <a class="smooth" href="#infoMembres"><img src="Ressources/images/Jean.jpg" alt="Photo de profil" id="Jean" class="img-fluid yesSub" title="Voir le profil" data-toggle="tooltip"></a>
+                <img src="Ressources/images/profil4.jpg" alt="Photo de profil" class="img-fluid nonSub" title="Le profil de ce membre est privé" data-toggle="tooltip">
+                <img src="Ressources/images/profil5.jpg" alt="Photo de profil" class="img-fluid nonSub" title="Le profil de ce membre est privé" data-toggle="tooltip">
+                <a class="smooth" href="#infoMembres"><img src="Ressources/images/Admin.jpg" alt="Photo de profil" id="Admin" class="img-fluid yesSub" title="Voir le profil" data-toggle="tooltip"></a>
+                <img src="Ressources/images/profil7.jpg" alt="Photo de profil" class="img-fluid nonSub" title="Le profil de ce membre est privé" data-toggle="tooltip">
+                <a class="smooth" href="#infoMembres"><img src="Ressources/images/David.jpg" alt="Photo de profil" id="David" class="img-fluid yesSub" title="Voir le profil" data-toggle="tooltip"></a>
+            </div>
+        </div>
+            <div class="container-fluid" id="infoMembres">
+                <br>
+                <br>
+                <h2 class="text-center"> Profil de <span id="profilNom"></span></h2>
+                <ul class="justify-content-center nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#biographieMembres" data-toggle="tab">Bio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#coordonneesMembres" data-toggle="tab">Coordonnées</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#albumMembres" data-toggle="tab">Albums</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <br>
+                    <div class="tab-pane active" id="biographieMembres">
+                        <h2>Biographie :</h2>
+                        <div id="bioMembres">
+                            <p class="text-center">Chargement en cours...</p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="coordonneesMembres">
+                        <p>Pr&eacute;nom : <span id="pseudoMembres">Chargement en cours...</span></p>
+                        <p> Adresse : <span id="adresseMembres">Chargement en cours...</span></p>
+                        <p>E-mail : <span id="mailMembres">Chargement en cours...</span></p>
+                        <p>Num&eacute;ro de t&eacute;l&eacute;phone : <span id="phoneMembres">Chargement en cours...</span></p>
+                    </div>
+                    <div class="tab-pane text-center" id="albumMembres">
+                        <h2>Photos : </h2>
+                        <img class="img-fluid" id="albumPicMembres" src="#" alt="Photo de profil">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+    </div> <!-- Fin div col-md-6 -->
+
+
+<!-- ------------------------------------------ SECTION MODULES ------------------------------------------ -->
+        <div class="col-md-3">
+            <div id="modules">
+                <br>
+                <div id="divModules" class="container-fluid text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Saint du jour :</h3>
+                            <span id="saint"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <img src="Ressources/images/saint.jpg" alt="Saint du jour" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div> <!-- Fin div row -->
+    
+</div> <!-- Fin div content -->
+
+
+<!-- ------------------------------------------ SECTION FOOTER ------------------------------------------ -->
+    <section id="footer">
+        <div class="text-center">
+            <span><a href="404.html" title="Plan du site">Plan du site</a> | <a href="404.html" title="Infos légales">Infos l&eacute;gales</a> | <a href="404.html" title="Aide">Aide</a> | <a href="404.html" title="Contact">Contact</a></span>
+        </div>
+    </section>
+
+
+<!-- ------------------------------------------ SCRIPTS ------------------------------------------ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> <!-- Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> <!-- JavaScript Bootstrap-->
+    <script src="Ressources/js/script.js"></script> <!-- script.js -->
+    <script src="Ressources/js/saint.js"></script> <!-- saint.js -->    
+    <script src="Ressources/js/membres.js"></script> <!-- membres.js -->
+    <script src="Ressources/js/commentaire.js"></script> <!-- Commentaire.js -->
+    <script src="Ressources/js/connexion.js"></script> <!-- Connexion.js -->
+    <script src="Ressources/js/inscription.js"></script> <!-- Inscription.js -->
+    <script src="Ressources/js/randomCarousel.js"></script> <!-- RandomCarousel.js -->
+    <script src="Ressources/js/randomCard.js"></script> <!-- RandomCard.js -->
+
+
+</body>
+
+</html>
