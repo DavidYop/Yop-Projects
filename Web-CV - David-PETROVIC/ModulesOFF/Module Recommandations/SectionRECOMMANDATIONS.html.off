@@ -1,0 +1,37 @@
+		<!-- <section id="recommandations">
+			<div class="container">
+				<div class="white-divider"></div><br>
+						<div class="heading">
+							<h2>Recommandations</h2>
+						</div>
+					
+					<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+					
+						<div class="carousel-inner" role="listbox">
+						
+							<div class="carousel-item active">
+								<h3>"Recommandation 1 (si un nour j'en ai ptdr)"</h3>
+								<h4>Auteur 1</h4>
+							</div>	
+						
+							<div class="carousel-item">
+								<h3>"Recommandation 1"</h3>
+								<h4>Auteur 2</h4>
+							</div>	
+				
+							<div class="carousel-item">
+								<h3>"Recommandation 3"</h3> 
+								<h4>Auteur 3</h4>
+							</div>
+				
+						</div>
+						<a class="carousel-control-prev" href="#myCarousel" data-slide="prev" role="button"><i class="fas fa-chevron-left fa-2x"></i></a>
+						<a class="carousel-control-next" href="#myCarousel" data-slide="next" role="button"><i class="fas fa-chevron-right fa-2x"></i></a>
+					</div>
+				</div>
+		</section> -->

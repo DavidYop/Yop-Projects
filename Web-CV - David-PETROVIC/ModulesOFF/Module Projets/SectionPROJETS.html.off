@@ -1,0 +1,44 @@
+	<!-- <section id="projets">
+			<div class="container">
+			
+				<div class="dark-divider"></div><br>
+				
+				<div class="heading">
+					<h2>Mes Projets</h2>
+				</div>
+				
+				<div class="row">
+				
+					<div class="col-sm-4">
+						<img class="img-thumbnail" src="images/voyages.jpg"  data-toggle="tooltip" title="Voyages"  alt="Voyages">
+					</div>
+				
+					<div class="col-sm-4">
+						<a href="http://google.fr" target="_blank"><img class="img-thumbnail" src="images/google-translate.png" alt="Google Translate"></a>
+					</div>
+				
+					<div class="col-sm-4">
+						<a href="http://twitter.fr" target="_blank"><img class="img-thumbnail" src="images/twitter-video.png" alt="Twitter Video"></a>
+					</div>
+				</div><br>
+				
+				<div class="row">
+				
+					<div class="col-sm-4">
+						<a href="http://google.fr" target="_blank"><img class="img-thumbnail" src="images/youtube.png" alt="youtube"></a>
+					</div>
+
+					<div class="col-sm-4">
+						<a href="http://twitter.fr" target="_blank"><img class="img-thumbnail" src="images/twitter-retweet.png" alt="twit"></a>
+					</div>
+					
+					<div class="col-sm-4">
+						<a href="http://facebook.fr" target="_blank"><img class="img-thumbnail" src="images/facebook-video.png" alt="fb">
+						</a>
+					</div>
+					
+				</div>
+				
+			</div>
+				
+		</section> -->

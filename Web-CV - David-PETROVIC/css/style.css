@@ -1,0 +1,483 @@
+/* GENERAL */
+body{
+	font-family: "lato", sans-serif;
+}
+
+h1, h2, h3, h4, h5,h6{
+	font-weight: bold;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+section{
+	padding: 45px 0px 80px 0px;
+}
+
+section .heading{
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+section .heading h2{
+	text-transform: uppercase;
+}
+
+.dark-divider{
+	width: 100px;
+	height: 2px;
+	background-color:#333;
+	margin: 0 auto;
+}
+
+.white-divider{
+	width: 100px;
+	height: 2px;
+	background-color: #fff;
+	margin: 0 auto;
+}
+
+ul, ol{
+	list-style: none;
+}
+
+/* NAVBAR */
+.navbar{
+	background:#17a2b8 !important;
+	font-size: 12px;
+	letter-spacing: 4px;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+	text-transform:  uppercase;
+}
+
+.navbar li a{
+	color: #fff !important;
+	height: 46px;
+	padding: 14px;
+	transition: all 0.1s ease-in;
+}
+
+.navbar-nav li a:hover{
+	background: #3d9abf;
+	box-shadow: #3d9abf 0px 13px 0px;
+	padding: 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.navbar-nav li a.active{
+	background: #19516d !important;
+	box-shadow: none;
+	border-radius: 0px;
+	padding: 14px;
+}
+
+.navbar .navbar-toggler, .navbar .navbar-toggler.collapsed{
+	height: 46px;
+	color: #ddd;
+	border: none;
+}
+
+.navbar .navbar-toggler:hover{
+	color: #fff;
+}
+
+.navbar button[aria-expanded=true] .fa-bars{
+	display: none;
+	transition: all 0.2s ease-in;
+ }
+
+ .navbar button[aria-expanded=false] .fa-times{
+	display: none;
+ }
+
+
+/* PROFIL */
+#profil{
+	padding-top: 100px;
+	background-image:linear-gradient(#1d6376 0%, #000 250%);
+	padding-bottom: 5px;
+	color: #9DA8B5;
+	font-weight: bold;
+	text-align: center;
+}
+
+#divProfil{
+	padding-bottom: 5px;
+}
+
+#date{
+	color: #fff;
+}
+
+.profile-picture{
+	text-align: center;
+	margin: 0 auto;
+}
+
+.profile-picture img{
+	filter: grayscale(100%);
+	transition: all 0.2s ease;
+}
+
+img.rounded-circle:hover{
+	filter: none;
+}
+
+#profil .heading h1{
+	color:#fff;
+	text-transform: uppercase;
+}
+
+#profil .heading h3, h4, h5{
+	color:#c2c2c2;
+}
+
+.btnCV{
+	font-weight: bold;
+	text-transform: uppercase;
+	color:#ddd;
+	border: 1px solid #ddd;
+	margin-top: 20px;
+	padding: 18px 50px;
+	display: inline-block;
+	transition: all 0.2s ease;
+	background: #1c688e;
+	border-radius: 20px
+}
+
+.btnCV:hover{
+	background: #19516d;
+	border-radius : 30px;
+	color: #fff;
+	text-decoration: none;
+	box-shadow: 0px 0px 2px;
+	border: 1px solid #fff;
+}
+
+#divInfo{
+	overflow: hidden;
+}
+
+#shadow{
+	margin-top: 25px;
+	height: 10px;
+	box-shadow: 0 -15px 14px -4px #fff;
+	position:relative;
+	top: -25px;
+}
+
+#btnPlus{
+	font-weight: bold;
+	text-transform: uppercase;
+	color:#fff;
+	text-decoration: none;
+	border: none;
+	display: inline-block;
+	transition: all 0.5s ease-in;
+	background: none;
+	position:relative;
+	top: -20px;
+}
+
+#btnPlus:hover{
+	text-shadow: 0px 0px 30px #fff;
+	cursor: pointer;
+	}
+
+#btnPlus:hover ~ #shadow{
+	box-shadow: 0 -15px 24px -4px red;
+		}
+
+/* COMPETENCES */
+#competences{
+	background-image:linear-gradient(#333 90%, #ddd 250%)
+}
+
+#competences .heading h2{
+	color:#fff;
+}
+
+#competences .progress{
+	height: 15%;
+	margin: 30px 20px;
+	background: #ddd;
+}
+
+#competences .progress-bar{
+	background: #1d6376;
+	height: 60px
+}
+
+#competences .progress-bar h5{
+	text-shadow: 1px 1px 1px #000;
+	position: absolute;
+	text-align: center;
+	left: 0px;
+	width: 100%;
+	
+}
+
+.progress-bar{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+/* EXPERIENCES */
+/* ModuleOFF */
+
+
+/* FORMATIONS */
+#formations{
+	/* background-image:linear-gradient(#333 90%, #ddd 250%); */
+	background-image:linear-gradient(#1d6376 0%, #000 250%)
+}
+
+#formations .heading h2{
+	color:#fff;
+}
+
+#in{
+	transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+}
+
+#out{
+	transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+}
+
+.formations-block{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px;
+	background: #ddd;
+	border-radius:10px;
+	border: 2px solid #ccc;
+	margin-bottom: 20px;
+}
+
+.formations-block:hover{
+	background: #f4f8ff;
+	transition: all 0.2s ease-in;
+}
+
+.formations-block:hover .white-divider{
+	background:#000;
+	transition: all 0.2s ease-in;
+}
+
+.formations-block h5{
+	color: #888;
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+.formations-block .fas{
+	font-size: 40px;
+}
+
+.formations-block h3{
+	color:#1d6376
+}
+
+.formations-block h4{
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.formations-block p{
+	font-weight: bold;
+}
+
+
+/* MES ROJETS */
+/* ModuleOFF */
+
+
+/* RECOMMANDATIONS */
+/* ModuleOFF */
+
+
+/* CONTACT */
+#contact{
+	background-image:linear-gradient(#333333 90%, #ddd 250%);
+	padding-bottom: 80px;
+}
+
+#contact .heading h2{
+	color: #fff;
+}
+
+#contactInfos{
+	width: 75%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px 30px 30px;
+	color: #fff;
+	background: none;
+	border-radius:100px;
+	border: 2px solid #ccc;
+	margin-bottom: 20px;
+	height: 100%;
+}
+
+#contactInfos a{
+	color: #1d6376;
+	transition: all 0.1s ease-in;
+	font-size: 23px;
+}
+
+#contactInfos a:hover{
+	font-size: 24px;
+}
+
+#contactInfos h4{
+	color: #ddd;
+}
+
+#contact-form{
+    font-size: 20px;
+    padding: 40px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.white-star{
+	color:#fff;
+	font-weight: normal;
+	text-shadow: 0px 0px 10px #fff;
+}
+
+.white-star:hover{
+	transition: all 0.5s ease;
+	text-shadow: none;
+	cursor: pointer;
+}
+
+.form-control{
+    height: 50px;
+	font-size: 18px;
+}
+
+label{
+	color: #c2c2c2;
+}
+
+.msgErreur{
+    font-style: italic;
+    font-size: 15px;
+    color: #d82c2e;
+	height: 25px;
+	font-weight: normal;
+}
+
+.btnContact{
+	font-weight: bold;
+	text-transform: uppercase;
+	color:#ddd;
+	border: 1px solid #ddd;
+	width: 100%;
+	padding: 18px;
+	transition: all 0.1s ease-in;
+	background: #19516d;
+	border-radius : 30px;
+}
+
+.btnContact:hover{
+	border-radius: 10px;
+	cursor: pointer;
+	background: #1c688e;
+	color: #fff;
+	text-decoration: none;
+	box-shadow: 0px 0px 2px;
+	border: 1px solid #fff;
+}
+
+.msgSend{
+    text-align: center;
+    margin-top: 15px;
+	font-weight: bold;
+	color:#fff;
+    font-size: 22px;
+	visibility: hidden;
+}
+
+.msgSend .fa-check{
+	color: #008000;
+}
+
+
+/* FOOTER */
+footer{
+	/* background: #71757a; Ancienne Couleur */
+	background: #8EA8A8;
+	padding: 20px 0px 40px;
+}
+
+footer .fas{
+	font-size: 25px;
+	margin: 20px;
+	color:  #1d6376;
+	height: 35px;
+}
+
+footer .fas:hover{
+	font-size: 27px
+}
+
+
+/* -------------------MEDIA QUERIES------------------ */
+
+/* NAVBAR */
+@media (max-width: 767px) {
+	.navbar-nav li a:hover{
+		background: #3d9abf;
+		box-shadow: none;
+		padding: 14px;
+		border: none;
+	}
+}
+
+
+/* Section CONTACT */
+
+@media (max-width: 993px) {
+	#contactInfos{
+		width: 100%;
+	}
+}
+
+@media (max-width: 504px) {
+	#contactInfos a{
+		font-size: 20px;
+	}
+	
+	#contactInfos a:hover{
+		font-size: 21px;
+	}
+	#contactInfos h3{
+		font-size: 22px;
+		}
+}
+
+@media (max-width: 420px) {
+	#contactInfos h3{
+		font-size: 19px;
+	}
+}
+
+@media (max-width: 415px) {
+	#contactInfos a{
+		font-size: 18px;
+	}
+	
+	#contactInfos a:hover{
+		font-size: 19px;
+	}
+}
