@@ -37,6 +37,7 @@ section .heading h2{
 	height: 2px;
 	background-color: #fff;
 	margin: 0 auto;
+	transition: all 0.2s ease-in;
 }
 
 ul, ol{
@@ -75,22 +76,22 @@ ul, ol{
 	padding: 14px;
 }
 
-.navbar .navbar-toggler, .navbar .navbar-toggler.collapsed{
+.navbar #hbg{
+	transition: all 0.1s ease-in;
 	height: 46px;
 	color: #ddd;
 	border: none;
+	padding-top: 13px;
 }
-
-.navbar .navbar-toggler:hover{
+.navbar #hbg:hover{
 	color: #fff;
 }
 
-.navbar button[aria-expanded=true] .fa-bars{
+.navbar #hbg[aria-expanded=true] .fa-bars{
 	display: none;
-	transition: all 0.2s ease-in;
  }
 
- .navbar button[aria-expanded=false] .fa-times{
+ .navbar #hbg[aria-expanded=false] .fa-times{
 	display: none;
  }
 
@@ -260,16 +261,15 @@ img.rounded-circle:hover{
 	border-radius:10px;
 	border: 2px solid #ccc;
 	margin-bottom: 20px;
+	transition: all 0.2s ease-in;
 }
 
 .formations-block:hover{
 	background: #f4f8ff;
-	transition: all 0.2s ease-in;
 }
 
 .formations-block:hover .white-divider{
 	background:#000;
-	transition: all 0.2s ease-in;
 }
 
 .formations-block h5{
@@ -298,15 +298,37 @@ img.rounded-circle:hover{
 
 /* MES ROJETS */
 /* ModuleOFF */
+#projets{
+	/* background-image:linear-gradient(#1d6376 0%, #000 250%) */
+	background-image:linear-gradient(#333333 90%, #ddd 250%);
+}
 
+#projets h2{
+	color:#fff;
+}
 
+#projets .img-thumbnail{
+	width: 100%;
+	height: 100%;
+	filter: grayscale(100%);
+	filter: brightness(90%);
+	border-radius: 20px;
+	border: solid 2px #1d6376;
+	transition: all 0.2s ease;
+}
+
+#projets .img-thumbnail:hover{
+	filter: none;
+	transform: scale(1.1);
+}
 /* RECOMMANDATIONS */
 /* ModuleOFF */
 
 
 /* CONTACT */
 #contact{
-	background-image:linear-gradient(#333333 90%, #ddd 250%);
+	background-image:linear-gradient(#1d6376 0%, #000 250%);
+	/* background-image:linear-gradient(#333333 90%, #ddd 250%); */
 	padding-bottom: 80px;
 }
 

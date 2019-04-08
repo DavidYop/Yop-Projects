@@ -7,7 +7,7 @@
 
     $array = array("prenomError" => "", "nomError" => "", "emailError" => "", "phoneError" => "", "messageError" => "", "isSuccess" => true);
 
-    $emailTo = "monmail@mondomaine.fr";
+    $emailTo = "petrovic.david@outlook.fr";
     $prenom = verifyInput($_POST["prenom"]);
     $nom = verifyInput($_POST["nom"]);
     $email = verifyInput($_POST["email"]);
