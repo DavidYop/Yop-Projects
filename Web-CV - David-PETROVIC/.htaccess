@@ -15,5 +15,3 @@ Deny from all
 </FilesMatch>
 
 Options -Indexes
-
-RedirectPermanent js  https://petrovic-david.fr

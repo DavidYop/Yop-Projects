@@ -1,4 +1,4 @@
-/* GENERAL */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION GENERAL |||||||||||||||||||||||||||||||||||||||||||||| */
 body{
 	font-family: "lato", sans-serif;
 }
@@ -44,7 +44,7 @@ ul, ol{
 	list-style: none;
 }
 
-/* NAVBAR */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION NAVBAR |||||||||||||||||||||||||||||||||||||||||||||| */
 .navbar{
 	background:#17a2b8 !important;
 	font-size: 12px;
@@ -96,7 +96,7 @@ ul, ol{
  }
 
 
-/* PROFIL */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION PROFIL |||||||||||||||||||||||||||||||||||||||||||||| */
 #profil{
 	padding-top: 100px;
 	background-image:linear-gradient(#1d6376 0%, #000 250%);
@@ -193,7 +193,7 @@ img.rounded-circle:hover{
 	box-shadow: 0 -15px 24px -4px red;
 		}
 
-/* COMPETENCES */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION COMPETENCES |||||||||||||||||||||||||||||||||||||||||||||| */
 #competences{
 	background-image:linear-gradient(#333 90%, #ddd 250%)
 }
@@ -228,11 +228,11 @@ img.rounded-circle:hover{
 }
 
 
-/* EXPERIENCES */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION EXPERIENCES |||||||||||||||||||||||||||||||||||||||||||||| */
 /* ModuleOFF */
 
 
-/* FORMATIONS */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION FORMATIONS |||||||||||||||||||||||||||||||||||||||||||||| */
 #formations{
 	/* background-image:linear-gradient(#333 90%, #ddd 250%); */
 	background-image:linear-gradient(#1d6376 0%, #000 250%)
@@ -296,8 +296,7 @@ img.rounded-circle:hover{
 }
 
 
-/* MES ROJETS */
-/* ModuleOFF */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION PROJETS |||||||||||||||||||||||||||||||||||||||||||||| */
 #projets{
 	/* background-image:linear-gradient(#1d6376 0%, #000 250%) */
 	background-image:linear-gradient(#333333 90%, #ddd 250%);
@@ -314,18 +313,20 @@ img.rounded-circle:hover{
 	filter: brightness(90%);
 	border-radius: 20px;
 	border: solid 2px #1d6376;
-	transition: all 0.2s ease;
+	transition: all 0.3s ease;
+	max-width: 600px;
+	max-height: 500px;
 }
 
 #projets .img-thumbnail:hover{
 	filter: none;
-	transform: scale(1.1);
+	box-shadow: 0px 0px 10px #fff;
 }
-/* RECOMMANDATIONS */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION RECOMMANDATIONS |||||||||||||||||||||||||||||||||||||||||||||| */
 /* ModuleOFF */
 
 
-/* CONTACT */
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION CONTACT |||||||||||||||||||||||||||||||||||||||||||||| */
 #contact{
 	background-image:linear-gradient(#1d6376 0%, #000 250%);
 	/* background-image:linear-gradient(#333333 90%, #ddd 250%); */
@@ -396,7 +397,7 @@ label{
     font-size: 15px;
     color: #d82c2e;
 	height: 25px;
-	font-weight: normal;
+	font-weight: bold;
 }
 
 .btnContact{
@@ -435,7 +436,7 @@ label{
 }
 
 
-/* FOOTER */
+/* |||||||||||||||||||||||||||||||||||||||||||||| FOOTER |||||||||||||||||||||||||||||||||||||||||||||| */
 footer{
 	/* background: #71757a; Ancienne Couleur */
 	background: #8EA8A8;
@@ -454,9 +455,9 @@ footer .fas:hover{
 }
 
 
-/* -------------------MEDIA QUERIES------------------ */
+/* ##################################### MEDIA QUERIES ##################################### */
 
-/* NAVBAR */
+/* |||||||||||||||||||||||||||||||||||||||||||||| NAVBAR MEDIA |||||||||||||||||||||||||||||||||||||||||||||| */
 @media (max-width: 767px) {
 	.navbar-nav li a:hover{
 		background: #3d9abf;
@@ -467,8 +468,8 @@ footer .fas:hover{
 }
 
 
-/* Section CONTACT */
-
+/* |||||||||||||||||||||||||||||||||||||||||||||| SECTION CONTACT MEDIA |||||||||||||||||||||||||||||||||||||||||||||| */
+ 
 @media (max-width: 993px) {
 	#contactInfos{
 		width: 100%;
