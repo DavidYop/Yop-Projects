@@ -2,10 +2,6 @@
 <?php
     //Déclaration de la variable "$page" pour que le header.php sache quel fichier CSS utiliser.
     $page='contact';
-    //Appel du fichier "functions.php" afin de pouvoir utiliser les fonctions stockées dedans.
-    require_once 'Ressources/php/inc/functions.php';
-    //Initialisation de la fonction "reconnect_cookie()" pour que l'utilisateur reste connecté si il a coché la case "Rester connecté" lors de sa connexion.
-    reconnect_cookie();
     //Appel du header.php.
     require_once 'Ressources/php/inc/header.php';
 ?>
@@ -51,9 +47,8 @@
                         <p class="msgErreur"></p>
                     </div>
                     <div class="col-md-6 form-group">
-                        <label for="email">E-mail <span data-toggle="tooltip" title="Ce champs est obligatoire" class="white-star">*</span></label>
-                        <input id="email" type="text" name="email" class="form-control" placeholder="Votre E-mail"
-                            value="">
+                        <label for="emailcont">E-mail <span data-toggle="tooltip" title="Ce champs est obligatoire" class="white-star">*</span></label>
+                        <input id="emailcont" type="text" name="emailcont" class="form-control" placeholder="Votre E-mail" value="">
                         <p class="msgErreur"></p>
                     </div>
                     <div class="col-md-6 form-group">
@@ -68,7 +63,7 @@
                         <textarea id="message" name="message" class="form-control" placeholder="Votre message" rows="4"></textarea>
                         <p class="msgErreur"></p>
                     </div>
-                    <div class="col-md-12 form-group">
+                    <div class="col-md-12 form-group text-center">
                         <input type="submit" class="btnContact" value="Envoyer">
                     </div>
                 </div>

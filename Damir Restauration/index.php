@@ -2,10 +2,6 @@
 <?php
     //Déclaration de la variable "$page" pour que le header.php sache quel fichier CSS utiliser.
 	$page = 'index';
-    //Appel du fichier "functions.php" afin de pouvoir utiliser les fonctions stockées dedans.
-	require_once 'Ressources/php/inc/functions.php';
-    //Initialisation de la fonction "reconnect_cookie()" pour que l'utilisateur reste connecté si il a coché la case "Rester connecté" lors de sa connexion.
-	reconnect_cookie();
     //Appel du header.php.
 	require_once 'Ressources/php/inc/header.php';
 ?>
@@ -51,7 +47,7 @@
 				<fieldset>
 					<legend><h2>Le restaurant</h2></legend>
 					<div class="zoom">
-						<a title="Accéder à la partie restauration" href="restauration.html">
+						<a title="Accéder à la partie restauration" href="restauration.php">
 							<img alt="Restauration" class="img-fluid" src="Ressources/img/092.jpg">
 						</a>
 					</div>
@@ -60,7 +56,7 @@
 						Consultez nos menus, plats et desserts &agrave; la carte, choississez la date, 
 						et r&eacute;servez gratuitement vos d&eacute;jeuners de la semaine !
 					</p>
-					<a href="restauration.html" title="Accéder à la partie restauration"><button class="btn">R&eacute;servez votre plateau</button></a>
+					<a href="restauration.php" title="Accéder à la partie restauration"><button class="btn">R&eacute;servez votre plateau</button></a>
 				</fieldset>
 			</div>
 			<div class="col-md">
@@ -68,7 +64,7 @@
 				<fieldset>
 					<legend><h2>Le traiteur</h2></legend>
 					<div class="zoom">
-						<a title="Accéder à la partie traiteur" href="traiteur.html">
+						<a title="Accéder à la partie traiteur" href="traiteur.php">
 							<img alt="Traiteur" class="img-fluid" src="Ressources/img/14.jpg">
 						</a>
 					</div>
@@ -78,7 +74,7 @@
 						les froids, les sucr&eacute;s, les boissons, sans oublier les bars ! 
 						<span class="note">(&agrave; partir de 35 personnes).</span>
 					</p>
-					<a href="traiteur.html" title="Accéder à la partie traiteur"><button class="btn">Voir nos offres</button></a>
+					<a href="traiteur.php" title="Accéder à la partie traiteur"><button class="btn">Voir nos offres</button></a>
 				</fieldset>
 			</div>
 		</div>
@@ -106,14 +102,20 @@
 					<legend><h2>Mon compte</h2></legend>
 					<div class="row">
 						<div class="col-md-4">
-						<a href="restauration.html" title="Reserver mon plateau"><button id="book" class="btn btn-success btn-lg"><i class="fas fa-utensils"></i> Reserver mon plateau</button></a>
+						<a href="404.php" title="Reserver mon plateau"><button id="book" class="btn btn-success btn-lg"><i class="fas fa-utensils"></i> Reserver mon plateau</button></a>
 						</div>
 						<div class="col-md-4">
 							<a title="Paramétrer mon compte" href="compte.php"><button class="btn btn-light btn-lg"><i class="fas fa-cog"></i> Param&eacute;trer mon compte</button></a>
 						</div>
-						<div class="col-md-4">
-							<a title="Déconnexion" href="Ressources/php/LogSub/logout.php"><button class="btn btn-danger btn-lg"><i class="fas fa-sign-out-alt"></i> Me d&eacute;connecter</button></a>
-						</div>
+						<?php if ($user->isadmin == 0): ?>
+							<div class="col-md-4">
+								<a title="Déconnexion" href="Ressources/php/LogSub/logout.php"><button class="btn btn-danger btn-lg"><i class="fas fa-sign-out-alt"></i> Me d&eacute;connecter</button></a>
+							</div>
+						<?php else: ?>
+							<div class="col-md-4">
+								<a title="Admin" href="admin.php"><button class="btn btn-danger btn-lg"><i class="fas fa-user-shield"></i> Interface Administrateur</button></a>
+							</div>
+						<?php endif; ?>
 					</div>
 				</fieldset>
 			</div>

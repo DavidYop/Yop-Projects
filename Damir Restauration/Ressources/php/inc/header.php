@@ -1,5 +1,18 @@
 <!DOCTYPE html>
 
+<?php
+require_once 'Ressources/php/inc/functions.php'; 
+require_once 'Ressources/php/inc/db.php';
+require_once 'Ressources/php/panier/panier-class.php';
+reconnect_cookie();
+if($page == 'compte'){
+	logged_only();
+}
+if($page == 'admin'){
+	admin_only();
+}
+?>
+
 <html lang="fr">
 
 <head>
@@ -13,19 +26,40 @@
 	<?php if($page =='index'){echo '<link rel="stylesheet" href="Ressources/css/index.css" />';} /* Index CSS */
 		  if($page =='compte'){echo '<link rel="stylesheet" href="Ressources/css/compte.css" />';} /* Compte CSS */
 		  if($page =='contact'){echo '<link rel="stylesheet" href="Ressources/css/contact.css" />';} /* Contact CSS */
-		  if($page =='reset'){echo '<link rel="stylesheet" href="Ressources/css/reset.css" />';} /* Reset CSS */?>
+		  if($page =='reset'){echo '<link rel="stylesheet" href="Ressources/css/reset.css" />';} /* Reset CSS */
+		  if($page =='traiteur'){echo '<link rel="stylesheet" href="Ressources/css/traiteur.css" />';} /* Traiteur CSS */
+		  if($page =='restauration'){echo '<link rel="stylesheet" href="Ressources/css/restauration.css" />';} /* Restauration CSS */
+		  if($page =='404'){echo '<link rel="stylesheet" href="Ressources/css/404.css" />';} /* 404 CSS */
+		  if($page =='admin'){echo '<link rel="stylesheet" href="Ressources/css/admin.css" />';} /* Admin CSS */
+		  if($page =='panier'){echo '<link rel="stylesheet" href="Ressources/css/panier.css" />';} /* Panier CSS */?>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> <!-- Google Fonts -->
 	<meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Responsive design -->
 	<meta name="theme-color" content="#7DB43A" /> <!-- Couleur navigateur Chrome Mobile -->
 
-	<title>Damir Restauration</title>
-	<meta name="description" content="Consultez la carte du restaurant collectif de l'AFPA de Nice et réservez vos plateaux de la semaine">
+	<!-- On echo le title et la meta description correspondant à la variable "$page" -->
+	<?php if($page =='index'){echo '<title>Damir Restauration</title>';
+		  echo "<meta name='description' content='Consultez la carte du restaurant collectif de l'AFPA de Nice et réservez vos plateaux de la semaine'>";}//Title/Desc Index
+		  if($page =='compte'){echo '<title>Damir Restauration - Compte</title>';
+		  echo "<meta name='description' content='Gérer et paramétrer votre compte Damir Restauration depuis cette page'>";}//Title/Desc Compte
+		  if($page =='contact'){echo '<title>Damir Restauration - Contact</title>';
+		  echo "<meta name='description' content='Trouver les informations de contact de Damir Restauration'>";}//Title/Desc Contact
+		  if($page =='reset'){echo '<title>Damir Restauration - Réinitialisation du mot de passe</title>';
+		  echo "<meta name='description' content='Réinitialiser le mot de passe de votre compte Damir Restauration'>";}//Title/Desc Reset
+		  if($page =='traiteur'){echo '<title>Damir Restauration - Traiteur</title>';
+		  echo "<meta name='description' content='Réservez des prestations pour vos évènements avec Damir Restauration'>";}//Title/Desc Traiteur
+		  if($page =='restauration'){echo '<title>Damir Restauration - Restauration </title>';
+		  echo "<meta name='description' content='Réservez votre plateau pour la semaine avec Damir Restauration'>";}//Title/Desc Traiteur
+		  if($page =='404'){echo '<title>Damir Restauration - Page introuvable </title>';
+		  echo "<meta name='description' content='Erreur 404, page introuvable, veuillez ré-essayer utlérieurement'>";}//Title/Desc 404
+		  if($page =='admin'){echo '<title>Damir Restauration - Interface Administrateur </title>';}//Title Admin
+		  if($page =='panier'){echo '<title>Damir Restauration - Récapitulatif de votre commande </title>';}//Title panier ?>
+
 
 </head>
 
 <body>
 
-	<!-------------------------------------------- NAVBAR -------------------------------------------->
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||| NAVBAR |||||||||||||||||||||||||||||||||||||||||||||| -->
 	<nav id="menunav" class="navbar navbar-expand-md navbar-dark py-0 px-0 fixed-top">
 		<button id="hbg" href="#collapseCross" class="navbar-toggler" data-toggle="collapse" data-target="#HMenu" aria-expanded="false" aria-controls="collapseCross">
 			<i class="fas fa-bars fa-lg"></i>
@@ -36,24 +70,45 @@
 				<h3><img alt="Logo AFPA" src="Ressources/img/mini_logo_afpa.png">Damir Restauration</h3>
 			</a>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item <?php if($page =='index'){echo 'active';}?>"><a class="nav-link" title="Accueil" href="index.php">Accueil</a></li>
-				<li class="nav-item <?php if($page =='restauration'){echo 'active';}?>"><a class="nav-link" title="Restauration"
-					 href="restauration.php">Restauration</a></li>
-				<li class="nav-item <?php if($page =='traiteur'){echo 'active';}?>"><a class="nav-link" title="Traiteur" href="traiteur.php">Traiteur</a></li>
-				<li class="nav-item <?php if($page =='contact'){echo 'active';}?>"><a class="nav-link" title="Contact" href="contact.php">Contact</a></li>
+				<li class="nav-item <?php if($page =='index'){echo 'active';}?>">
+					<a class="nav-link" title="Accueil" href="index.php">Accueil</a>
+				</li>
+				<li class="nav-item <?php if($page =='restauration'){echo 'active';}?>">
+					<a class="nav-link" title="Restauration" href="restauration.php">Restauration</a>
+				</li>
+				<li class="nav-item <?php if($page =='traiteur'){echo 'active';}?>">
+					<a class="nav-link" title="Traiteur" href="traiteur.php">Traiteur</a>
+				</li>
+				<li class="nav-item <?php if($page =='contact'){echo 'active';}?>">
+					<a class="nav-link" title="Contact" href="contact.php">Contact</a>
+				</li>
+				<?php if(isset($_SESSION['auth'])): ?>
+					<?php $user = $_SESSION['auth'];
+						  if($user->isadmin == 1): ?>
+						<li class="nav-item <?php if($page =='admin'){echo 'active';} ?>" > 
+							<a class="nav-link" title="Admin" href="admin.php">Admin</a>
+						</li>
+					<?php endif; ?>
+		  		<?php endif; ?>
 				<?php if (isset($_SESSION['auth'])): ?>
-				<li class="nav-item <?php if($page =='compte'){echo 'active';}?>"><a class="nav-link" title="Mon compte" href="compte.php">Mon compte</a></li>
-				<li class="nav-item"><a id="Deconnexion" class="nav-link" title="Déconnexion" href="Ressources/php/LogSub/logout.php"><i class="fas fa-sign-out-alt"></i> D&eacute;connexion</a></li>
+					<li class="nav-item <?php if($page =='compte'){echo 'active';}?>">
+						<a class="nav-link" title="Mon compte" href="compte.php">Mon compte</a>
+					</li>
+					<li class="nav-item">
+						<a id="Deconnexion" class="nav-link" title="Déconnexion" href="Ressources/php/LogSub/logout.php"><i class="fas fa-sign-out-alt"></i> D&eacute;connexion</a>
+					</li>
 				<?php else: ?>
-				<li class="nav-item"><a title="Connexion/Inscription" id="connexion" class="nav-link" href="#" data-toggle="modal" data-target="#popup_logsub">Connexion | Inscription</a></li>
+					<li class="nav-item">
+						<a title="Connexion/Inscription" id="connexion" class="nav-link" href="#" data-toggle="modal" data-target="#popup_logsub">Connexion | Inscription</a>
+					</li>
 				<?php endif; ?>
 			</ul>
 		</div>
 	</nav>
 
-	<!-------------------------------------------- SECTION LOGSUB -------------------------------------------->
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||| SECTION LOGSUB |||||||||||||||||||||||||||||||||||||||||||||| -->
 	<section id="LOGSUB">
-		<!-------------------------------------------- MODAL CONENXION/INSCRIPTION -------------------------------------------->
+		<!-- |||||||||||||||||||||||||||||||||||||||||||||| MODAL CONNEXION/INSCRIPTION |||||||||||||||||||||||||||||||||||||||||||||| -->
 		<div class="modal fade" id="popup_logsub">
 			<div class="modal-dialog modal-lg">
 
@@ -62,10 +117,12 @@
 					<div class="modal-header logsubnav">
 						<nav class="navbar logsubnav">
 							<ul class="navbar logsubnav nav nav-fill w-100 px-0 py-0">
-								<li class="nav-item"><a class="nav-link active" id="tabco" href="#tabconnexion" data-toggle="tab"><i class="fas fa-sign-in-alt"></i>
-										Connexion</a></li>
-								<li class="nav-item"><a class="nav-link" id="tabsub" href="#tabinscription" data-toggle="tab"><i class="fas fa-user-edit"></i>
-										Inscription</a></li>
+								<li class="nav-item">
+									<a class="nav-link active" id="tabco" href="#tabconnexion" data-toggle="tab"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="tabsub" href="#tabinscription" data-toggle="tab"><i class="fas fa-user-edit"></i> Inscription</a>
+								</li>
 								<li id="hiddenItem"><a id="tabfolink" class="invisible" href="#tabforget" data-toggle="tab"></a></li>
 							</ul>
 						</nav>
@@ -74,7 +131,7 @@
 					<div class="modal-body">
 						<div class="tab-content">
 
-							<!-------------------------------------------- TAB CONNEXION -------------------------------------------->
+							<!-- |||||||||||||||||||||||||||||||||||||||||||||| TAB CONNEXION |||||||||||||||||||||||||||||||||||||||||||||| -->
 							<div class="tab-pane fade show active" id="tabconnexion">
 								<form id="co-form" action="" method="POST">
 
@@ -98,7 +155,7 @@
 								</form>
 							</div>
 
-							<!-------------------------------------------- TAB INSCRIPTION -------------------------------------------->
+							<!-- |||||||||||||||||||||||||||||||||||||||||||||| TAB INSCRIPTION |||||||||||||||||||||||||||||||||||||||||||||| -->
 							<div class="tab-pane fade" id="tabinscription">
 								<form id="sub-form" action="" method="POST">
 									<div class="row">
@@ -143,7 +200,7 @@
 								</form>
 							</div>
 
-							<!-------------------------------------------- TAB MDP OUBLIE -------------------------------------------->
+							<!-- |||||||||||||||||||||||||||||||||||||||||||||| TAB MDP OUBLIE |||||||||||||||||||||||||||||||||||||||||||||| -->
 							<div class="tab-pane fade" id="tabforget">
 								<form id="forget-form" action="" method="POST">
 									<div class="form-group">
@@ -165,7 +222,7 @@
 		</div>
 
 
-		<!-------------------------------------------- MODAL MAIL CONFIRMATION INSCRIPTION -------------------------------------------->
+		<!-- |||||||||||||||||||||||||||||||||||||||||||||| MODAL MAIL CONFIRMATION INSCRIPTION |||||||||||||||||||||||||||||||||||||||||||||| -->
 		<div class="modal fade" id="popup_mail_confirm">
 			<div class="modal-dialog modal-lg">
 
@@ -180,7 +237,7 @@
 			</div>
 		</div>
 
-		<!-------------------------------------------- MODAL MAIL REINITIALISATION MDP -------------------------------------------->
+		<!-- |||||||||||||||||||||||||||||||||||||||||||||| MODAL MAIL REINITIALISATION MDP |||||||||||||||||||||||||||||||||||||||||||||| -->
 		<div class="modal fade" id="popup_pwd_reset">
 			<div class="modal-dialog modal-lg">
 
@@ -198,7 +255,7 @@
 	</section>
 
 
-	<!-------------------------------------------- MESSAGES FLASH -------------------------------------------->
+	<!-- |||||||||||||||||||||||||||||||||||||||||||||| MESSAGES FLASH |||||||||||||||||||||||||||||||||||||||||||||| -->
 	<div class="container">
 		<?php 
         if(isset($_SESSION['flash'])) {
@@ -215,3 +272,5 @@
 
 	<div id="container">
 	<div id="push"></div>
+
+	
