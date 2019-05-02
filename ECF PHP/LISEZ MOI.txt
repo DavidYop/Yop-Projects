@@ -1,0 +1,13 @@
+Avant de commencer :
+
+Merci d'importer le fichier 'db.sql' dans votre interface PHP MY ADMIN.
+
+
+Si le site ne fonctionne pas, c'est sûrement dû au mot de passe de MySQL qui doit différer du mien, 
+il faut donc se rendre dans le fichier "db.php" et modifier la ligne 8 :
+            "private static $dbUserpassword = 'root';"
+Remplacer 'root' par votre mot de passe MySQL
+
+Si vous n'avez pas de mot de passe, laisser le champs vide comme ceci :
+            "private static $dbUserpassword = '';"
+

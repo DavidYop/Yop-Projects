@@ -1,0 +1,109 @@
+body, html{
+    background: #ffd900;
+}
+
+.imgsize{
+    height: 100%;
+    width: 100%;
+}
+
+.msgInfo{
+    width: 1920px;
+    padding: 20px;
+}
+
+#formMDP{
+    padding: 20px;
+}
+
+.errMDP{
+    font-weight: bold;
+    font-style: italic;
+    padding: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #e72e00;
+}
+
+.pic{
+    padding-bottom: 30px;
+}
+
+.pic img{
+    border-radius: 10px;
+    border: solid 2px #4e4d4d;
+    transition: all 0.2s ease;
+}
+
+.pic img:hover{
+    transform: scale(1.02);
+}
+
+.btnSubmit{
+    border-radius: 100px;
+}
+
+.sel{
+    height: 75px;
+    border: solid 2px #4e4d4d;
+    transition: all 0.2s ease;
+}
+
+.sel:hover{
+    background: #f2f2f2;
+    cursor: pointer;
+}
+
+#mdp{
+    width:340px;
+    height: 50px;
+    border-radius: 15px;
+    border: solid 2px #888;
+}
+
+#labelMDP{
+    font-size: 25px;
+    font-weight: bold;
+    color: #a02000;
+}
+
+#divAllPic, #divTagPic, #divCatPic {
+    border: solid 2px #4e4d4d;
+    padding: 10px;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+}
+
+#divAllPic:hover, #divTagPic:hover, #divCatPic:hover {
+    transform: scale(1.02);
+}
+
+#btnAdd, .btnHome{
+    border: solid 2px #000;
+}
+
+.chooseIMG{
+    border: solid 2px #000;
+}
+
+.chooseIMG:hover{
+    cursor: pointer;
+}
+
+.msgSuccess{
+    color: #007000;
+}
+
+.formulaire{
+    display: none;
+}
+
+#showForm{
+    width: 500px;
+    border-radius: 100px;
+}
+
+.ecfPHP h2{
+    padding-top: 100px;
+    font-size: 300px;
+}
